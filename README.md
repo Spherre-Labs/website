@@ -2,7 +2,6 @@
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). It serves as the landing page for Spherre, a decentralized multisignature treasury solution built on StarkNet.
 
----
 ##
 About Spherre
 Spherre is a decentralized multisignature treasury solution built on StarkNet. It enables secure, transparent, and efficient management of on-chain finances for DAOs, businesses, and organizations. With features like role-based access, flexible thresholds, and transaction management, Spherre is designed to simplify decentralized financial operations.
