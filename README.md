@@ -1,37 +1,43 @@
-Spherre Website/Landing Page
-This is a Next.js project bootstrapped with create-next-app. It serves as the landing page for Spherre, a decentralized multisignature treasury solution built on StarkNet.
+# Spherre Website/Landing Page
 
-About Spherre
-Spherre is a decentralized multisignature treasury solution built on StarkNet. It enables secure, transparent, and efficient management of on-chain finances for DAOs, businesses, and organizations.
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). It serves as the landing page for Spherre, a decentralized multisignature treasury solution built on StarkNet.
 
-Features
-Role-based access for enhanced security
-Flexible approval thresholds for transaction execution
-Transparent and auditable on-chain financial management
-Getting Started
-Running the Development Server
-To start the project locally, run:
+## About Spherre
 
-bash
-Copy
-Edit
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-Then, open http://localhost:3000 in your browser to see the result.
+Spherre is a decentralized multisignature treasury solution built on StarkNet. It enables secure, transparent, and efficient management of on-chain finances for DAOs, businesses, and organizations. With features like role-based access, flexible thresholds, and transaction management, Spherre is designed to simplify decentralized financial operations.
 
-You can start editing the page by modifying app/page.tsx. The page auto-updates as you edit the file.
+## Getting Started
 
-Contributing
-We welcome contributions! If you'd like to improve the Spherre website, follow these steps:
+To get started with the Spherre website locally, follow these steps:
 
-Fork the repository
-Create a new branch for your changes
-Submit a pull request when done
+### Prerequisites
+- Node.js (v18 or higher recommended)
+- A package manager like npm, yarn, pnpm, or bun
+
+### Installation
+
+1. **Fork and clone Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/spherre-website.git
+   cd spherre-website
+   ```
+
+2. **Install dependencies:**
+     ```bash
+   npm install
+     ```
+ 
+### Running the Development Server
+
+1. To start the project locally, run:
+
+    ```bash
+    npm run dev
+    ```
+
+After running the command, open http://localhost:3000 in your browser
+
+Submit a pull request when done and await review
 Happy coding! 🎉
 
 If you have any questions, feel free to open an issue or reach out to the team.
