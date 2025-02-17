@@ -1,28 +1,20 @@
-# Spherre Website/Landing Page
+Spherre Website/Landing Page
+This is a Next.js project bootstrapped with create-next-app. It serves as the landing page for Spherre, a decentralized multisignature treasury solution built on StarkNet.
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). It serves as the landing page for Spherre, a decentralized multisignature treasury solution built on StarkNet.
-
-##
 About Spherre
-Spherre is a decentralized multisignature treasury solution built on StarkNet. It enables secure, transparent, and efficient management of on-chain finances for DAOs, businesses, and organizations. With features like role-based access, flexible thresholds, and transaction management, Spherre is designed to simplify decentralized financial operations.
+Spherre is a decentralized multisignature treasury solution built on StarkNet. It enables secure, transparent, and efficient management of on-chain finances for DAOs, businesses, and organizations.
 
-Contributing
-We welcome contributions! If you'd like to improve the Spherre website, feel free to:
+Features
+Role-based access for enhanced security
+Flexible approval thresholds for transaction execution
+Transparent and auditable on-chain financial management
+Getting Started
+Running the Development Server
+To start the project locally, run:
 
-Fork the repository.
-
-Create a new branch for your changes.
-
-Submit a pull request when done.
-
-Happy coding! 🎉
-If you have any questions, feel free to open an issue or reach out to the team.
-
-## Getting Started
-
-First, run the development server:
-
-```bash
+bash
+Copy
+Edit
 npm run dev
 # or
 yarn dev
@@ -30,6 +22,16 @@ yarn dev
 pnpm dev
 # or
 bun dev
-Open http://localhost:3000 with your browser to see the result.
+Then, open http://localhost:3000 in your browser to see the result.
 
 You can start editing the page by modifying app/page.tsx. The page auto-updates as you edit the file.
+
+Contributing
+We welcome contributions! If you'd like to improve the Spherre website, follow these steps:
+
+Fork the repository
+Create a new branch for your changes
+Submit a pull request when done
+Happy coding! 🎉
+
+If you have any questions, feel free to open an issue or reach out to the team.
