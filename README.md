@@ -1,4 +1,4 @@
-# Spherre Website/Landing Page
+# Spherre Website
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). It serves as the landing page for Spherre, a decentralized multisignature treasury solution built on StarkNet.
 
@@ -36,6 +36,13 @@ To get started with the Spherre website locally, follow these steps:
     ```
 
 After running the command, open http://localhost:3000 in your browser
+
+### General Notes for Contributors:
+Please review the Figma designs in prototype mode to understand any animations, transitions, or interactions that need to be implemented.
+
+Ensure all components are responsive and adhere to the design system.
+
+If you have any questions or need clarification, feel free to reach out to the project maintainers.
 
 Submit a pull request when done and await review
 Happy coding! 🎉
