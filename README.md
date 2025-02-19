@@ -37,7 +37,7 @@ To get started with the Spherre website locally, follow these steps:
 
 After running the command, open http://localhost:3000 in your browser
 
-### General Notes for Contributors:
+### Guidelines For Developers Hoping To Contribute:
 Please review the Figma designs in prototype mode to understand any animations, transitions, or interactions that need to be implemented.
 
 Ensure all components are responsive and adhere to the design system.
