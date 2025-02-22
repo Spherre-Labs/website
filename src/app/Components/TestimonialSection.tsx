@@ -215,6 +215,24 @@ const TestimonialSection: React.FC = () => {
             ))}
           </div>
         </div>
+        <div className="overflow-hidden h-[91px]  border-[1px] border-[#ffffff43] ">
+          <div className="grid grid-rows-3">
+            {[...testimonials, ...testimonials].map((row, rowIndex) => (
+              <div
+                key={rowIndex}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-8 relative"
+              >
+                {row.map((_, index) => (
+                  <div key={index} className=""></div>
+                ))}
+
+                <div className="hidden lg:block absolute top-0 bottom-0 right-[75.5%] transform -translate-x-1/2 border-l border-dashed border-[#FFFFFF43]"></div>
+                <div className="hidden md:block absolute top-0 bottom-0 left-1/2 transform -translate-x-1/2 border-l border-dashed border-[#FFFFFF43]"></div>
+                <div className="hidden lg:block absolute top-0 bottom-0 left-[75.5%] transform -translate-x-1/2 border-l border-dashed border-[#FFFFFF43]"></div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
