@@ -12,7 +12,7 @@ export default function Nav() {
       <div className="bg-[#6F2FCE] w-full flex justify-center items-center space-x-3 py-3">
         <p>
           <span>🚀</span>
-          <span>Join our waitlisttt</span>
+          <span>Join our waitlist</span>
         </p>
         <button className="bg-black text-white border border-white rounded-full w-fit py-1 px-3">
           Join now
