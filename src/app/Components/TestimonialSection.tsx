@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-
+import { motion, useAnimation, useInView } from "framer-motion";
 interface Testimonial {
   name: string;
   role: string;
@@ -106,29 +106,53 @@ const testimonials: Testimonial[][] = [
   ],
 ];
 
+
+const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => {
+  return (
+    <motion.div
+      className="flex-shrink-0 w-[300px] p-6 rounded-xl"
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: "spring", stiffness: 300 }}
+    >
+      <div className="flex items-center gap-4 mb-4">
+        <div className="w-10 h-10 rounded-full overflow-hidden bg-[#1a1a1a] flex-shrink-0">
+          <img
+            src={testimonial.avatar}
+            alt={testimonial.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="flex flex-col">
+          <div className="flex items-center gap-2">
+            <span className="text-[15px] font-medium text-white">
+              {testimonial.name}
+            </span>
+            {testimonial.hasBadge && (
+              <svg
+                className="w-4 h-4 text-blue-500"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            )}
+          </div>
+          <p className="text-sm text-[#666666]">{testimonial.role}</p>
+        </div>
+      </div>
+      <p className="text-[14px] leading-relaxed text-[#A3A3A3] line-clamp-3">
+        &quot;{testimonial.content}&quot;
+      </p>
+    </motion.div>
+      );
+};
+
 const TestimonialSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    let scrollAmount = 0;
-    const scrollSpeed = 1;
-
-    const scroll = () => {
-      if (container) {
-        scrollAmount += scrollSpeed;
-        if (scrollAmount >= container.scrollHeight / 2) {
-          scrollAmount = 0;
-        }
-        container.scrollTop = scrollAmount;
-      }
-      requestAnimationFrame(scroll);
-    };
-
-    const animationFrame = requestAnimationFrame(scroll);
-
-    return () => cancelAnimationFrame(animationFrame);
-  }, []);
 
   return (
     <div className="bg-[#101213] py-16 ">
@@ -151,7 +175,7 @@ const TestimonialSection: React.FC = () => {
             ))}
           </div>
         </div>
-        <div className=" border-[1px] border-[#ffffff43] border-b-0 p-4 ">
+        <div className=" border-[1px] border-[#ffffff43] border-b-0 p-4 md:p-8 ">
           <h2 className="md:text-[2.5rem] text-xl font-extrabold">
             <span className="text-white">Loved by Teams & </span>
             <span className="text-gray-400">Organizations Worldwide</span>
@@ -160,60 +184,75 @@ const TestimonialSection: React.FC = () => {
 
         <div
           ref={containerRef}
-          className="overflow-hidden h-[600px]  border-[1px] border-[#ffffff43] "
+          className="overflow-hidden border-[1px] border-[#ffffff43]"
         >
-          <div className="grid grid-rows-3">
-            {[...testimonials, ...testimonials].map((row, rowIndex) => (
-              <div
-                key={rowIndex}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-8 relative"
-              >
-                {row.map((testimonial, index) => (
-                  <div key={index} className=" p-4 relative">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-full overflow-hidden">
-                        <img
-                          src={testimonial.avatar}
-                          alt={testimonial.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div>
-                        <div className="flex items-center gap-1">
-                          <span className="text-sm font-medium text-white">
-                            {testimonial.name}
-                          </span>
-                          {testimonial.hasBadge && (
-                            <svg
-                              className="w-3 h-3 text-blue-400"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clipRule="evenodd"
-                              />
-                            </svg>
-                          )}
-                        </div>
-                        <p className="text-xs text-gray-500">
-                          {testimonial.role}
-                        </p>
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-400 leading-relaxed">
-                      &quot;{testimonial.content}&quot;
-                    </p>
-                  </div>
-                ))}
-
-                <div className="hidden lg:block absolute top-0 bottom-0 right-[75.5%] transform -translate-x-1/2 border-l border-dashed border-[#FFFFFF43]"></div>
-                <div className="hidden md:block absolute top-0 bottom-0 left-1/2 transform -translate-x-1/2 border-l border-dashed border-[#FFFFFF43]"></div>
-                <div className="hidden lg:block absolute top-0 bottom-0 left-[75.5%] transform -translate-x-1/2 border-l border-dashed border-[#FFFFFF43]"></div>
-              </div>
-            ))}
+          {/* First Row: Scroll Left */}
+          <div className="relative">
+            <motion.div 
+              className="flex gap-6 py-8"
+              animate={{
+                x: [0, -1920],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 30,
+                  ease: "linear",
+                },
+              }}
+            >
+              {[...testimonials[0], ...testimonials[0], ...testimonials[0]].map((testimonial, index) => (
+                <TestimonialCard key={`row1-${index}`} testimonial={testimonial} />
+              ))}
+            </motion.div>
           </div>
+
+          {/* Second Row: Scroll Right */}
+          <div className="relative">
+            <motion.div 
+              className="flex gap-6 py-8"
+              animate={{
+                x: [-1920, 0],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 30,
+                  ease: "linear",
+                },
+              }}
+            >
+              {[...testimonials[1], ...testimonials[1], ...testimonials[1]].map((testimonial, index) => (
+                <TestimonialCard key={`row2-${index}`} testimonial={testimonial} />
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Third Row: Scroll Left */}
+          <div className="relative">
+            <motion.div 
+              className="flex gap-6 py-8"
+              animate={{
+                x: [0, -1920],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 30,
+                  ease: "linear",
+                },
+              }}
+            >
+              {[...testimonials[2], ...testimonials[2], ...testimonials[2]].map((testimonial, index) => (
+                <TestimonialCard key={`row3-${index}`} testimonial={testimonial} />
+              ))}
+            </motion.div>
+          </div>
+
+         
         </div>
         <div className="overflow-hidden h-[91px]  border-[1px] border-[#ffffff43] ">
           <div className="grid grid-rows-3">
