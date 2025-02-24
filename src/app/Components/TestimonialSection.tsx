@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
+
 interface Testimonial {
   name: string;
   role: string;
@@ -23,7 +24,7 @@ const testimonials: Testimonial[][] = [
       name: "Sophia R",
       role: "eJephs24",
       content:
-        "Our startup relies on Sphere for team-based asset management. It gives us peace of mind knowing that funds can’t move without collective approval.",
+        "Our startup relies on Sphere for team-based asset management. It gives us peace of mind knowing that funds can't move without collective approval.",
       avatar: "/t2.png",
     },
     {
@@ -38,7 +39,7 @@ const testimonials: Testimonial[][] = [
       name: "Alice Mccan",
       role: "Crypto Investor",
       content:
-        "Sphere made our DAO’s treasury management seamless and ultra-secure. The multisig setup ensures no single entity controls the assets, which is a game-changer.",
+        "Sphere made our DAO's treasury management seamless and ultra-secure. The multisig setup ensures no single entity controls the assets, which is a game-changer.",
       avatar: "/t4.png",
     },
   ],
@@ -54,7 +55,7 @@ const testimonials: Testimonial[][] = [
       name: "Ben S",
       role: "eJephs24",
       content:
-        "Sphere revolutionized how we manage shared assets. No single point of failure means we’re always protected.",
+        "Sphere revolutionized how we manage shared assets. No single point of failure means we're always protected.",
       avatar: "/t6.png",
       hasBadge: true,
     },
@@ -62,7 +63,7 @@ const testimonials: Testimonial[][] = [
       name: "Mark Benimaro",
       role: "DAD Treasurer",
       content:
-        "Finally, a multisig wallet that is scalable, affordable, and easy to use. Starknet’s efficiency combined with Sphere’s security is unbeatable.",
+        "Finally, a multisig wallet that is scalable, affordable, and easy to use. Starknet's efficiency combined with Sphere's security is unbeatable.",
       avatar: "/t7.png",
     },
     {
@@ -78,7 +79,7 @@ const testimonials: Testimonial[][] = [
       name: "Daniel F.",
       role: "eJephs24",
       content:
-        "Starknet’s speed and Sphere’s security make it the perfect combination for managing large-scale digital transactions.",
+        "Starknet's speed and Sphere's security make it the perfect combination for managing large-scale digital transactions.",
       avatar: "/t9.png",
     },
     {
@@ -100,12 +101,11 @@ const testimonials: Testimonial[][] = [
       name: "Kelvin Bumas",
       role: "eJephs24",
       content:
-        "Sphere is hands down the best multisig wallet I’ve used. Highly recommend it for anyone managing digital assets collaboratively.",
+        "Sphere is hands down the best multisig wallet I've used. Highly recommend it for anyone managing digital assets collaboratively.",
       avatar: "/t12.png",
     },
   ],
 ];
-
 
 const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => {
   return (
@@ -148,16 +148,48 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
         &quot;{testimonial.content}&quot;
       </p>
     </motion.div>
-      );
+  );
+};
+
+const TestimonialColumn: React.FC<{ 
+  testimonials: Testimonial[],
+  direction: "up" | "down",
+  columnIndex: number
+}> = ({ testimonials, direction, columnIndex }) => {
+  return (
+    <div className={`relative h-[600px] overflow-hidden ${columnIndex > 0 ? 'hidden md:block' : ''}`}>
+      <motion.div 
+        className="flex flex-col gap-2"
+        animate={{
+          y: direction === "up" ? [-1200, 0] : [0, -1200]
+        }}
+        transition={{
+          y: {
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 30,
+            ease: "linear",
+          },
+        }}
+      >
+        {[...testimonials, ...testimonials, ...testimonials].map((testimonial, index) => (
+          <TestimonialCard key={`${direction}-${index}`} testimonial={testimonial} />
+        ))}
+      </motion.div>
+    </div>
+  );
 };
 
 const TestimonialSection: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const columns = testimonials[0].map((_, columnIndex) => 
+    testimonials.map(row => row[columnIndex])
+  );
 
   return (
-    <div className="bg-[#101213] py-16 ">
+    <div className="bg-[#101213] py-16">
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="overflow-hidden h-[91px]  border-[1px] border-[#ffffff43] ">
+        {/* Top dashed border section */}
+        <div className="overflow-hidden h-[91px] border-[1px] border-[#ffffff43]">
           <div className="grid grid-rows-3">
             {[...testimonials, ...testimonials].map((row, rowIndex) => (
               <div
@@ -175,86 +207,34 @@ const TestimonialSection: React.FC = () => {
             ))}
           </div>
         </div>
-        <div className=" border-[1px] border-[#ffffff43] border-b-0 p-4 md:p-8 ">
+
+        <div className="border-[1px] border-[#ffffff43] border-b-0 p-4 md:p-8">
           <h2 className="md:text-[2.5rem] text-xl font-extrabold">
             <span className="text-white">Loved by Teams & </span>
             <span className="text-gray-400">Organizations Worldwide</span>
           </h2>
         </div>
 
-        <div
-          ref={containerRef}
-          className="overflow-hidden border-[1px] border-[#ffffff43]"
-        >
-          {/* First Row: Scroll Left */}
-          <div className="relative">
-            <motion.div 
-              className="flex gap-6 py-8"
-              animate={{
-                x: [0, -1920],
-              }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 30,
-                  ease: "linear",
-                },
-              }}
-            >
-              {[...testimonials[0], ...testimonials[0], ...testimonials[0]].map((testimonial, index) => (
-                <TestimonialCard key={`row1-${index}`} testimonial={testimonial} />
-              ))}
-            </motion.div>
+        <div className="border-[1px] border-[#ffffff43] relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-8">
+            {columns.map((columnTestimonials, index) => (
+              <TestimonialColumn 
+                key={index}
+                testimonials={columnTestimonials}
+                direction={index % 2 === 0 ? "up" : "down"}
+                columnIndex={index}
+              />
+            ))}
           </div>
-
-          {/* Second Row: Scroll Right */}
-          <div className="relative">
-            <motion.div 
-              className="flex gap-6 py-8"
-              animate={{
-                x: [-1920, 0],
-              }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 30,
-                  ease: "linear",
-                },
-              }}
-            >
-              {[...testimonials[1], ...testimonials[1], ...testimonials[1]].map((testimonial, index) => (
-                <TestimonialCard key={`row2-${index}`} testimonial={testimonial} />
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Third Row: Scroll Left */}
-          <div className="relative">
-            <motion.div 
-              className="flex gap-6 py-8"
-              animate={{
-                x: [0, -1920],
-              }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 30,
-                  ease: "linear",
-                },
-              }}
-            >
-              {[...testimonials[2], ...testimonials[2], ...testimonials[2]].map((testimonial, index) => (
-                <TestimonialCard key={`row3-${index}`} testimonial={testimonial} />
-              ))}
-            </motion.div>
-          </div>
-
-         
+          
+          {/* Dashed borders */}
+          <div className="hidden lg:block absolute top-0 bottom-0 right-[75.5%] transform -translate-x-1/2 border-l border-dashed border-[#FFFFFF43]"></div>
+          <div className="hidden md:block absolute top-0 bottom-0 left-1/2 transform -translate-x-1/2 border-l border-dashed border-[#FFFFFF43]"></div>
+          <div className="hidden lg:block absolute top-0 bottom-0 left-[75.5%] transform -translate-x-1/2 border-l border-dashed border-[#FFFFFF43]"></div>
         </div>
-        <div className="overflow-hidden h-[91px]  border-[1px] border-[#ffffff43] ">
+
+        {/* Bottom dashed border section */}
+        <div className="overflow-hidden h-[91px] border-[1px] border-[#ffffff43]">
           <div className="grid grid-rows-3">
             {[...testimonials, ...testimonials].map((row, rowIndex) => (
               <div
