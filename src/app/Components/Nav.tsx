@@ -7,7 +7,8 @@ import { FiAlignCenter, FiX } from "react-icons/fi";
 export default function Nav() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   return (
-    <header className="fixed inset-x-0 z-50">
+    // fixed inset-x-0 z-50
+    <header className="">
       {/* Top Info */}
       <div className="bg-[#6F2FCE] w-full flex justify-center items-center space-x-3 py-3">
         <p>
