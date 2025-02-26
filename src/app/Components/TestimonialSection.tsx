@@ -1,13 +1,13 @@
 "use client";
-import React, { useEffect, useRef } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 
 interface Testimonial {
   name: string;
   role: string;
   content: string;
-  avatar: string; 
-  hasBadge?: boolean; 
+  avatar: string;
+  hasBadge?: boolean;
 }
 
 const testimonials: Testimonial[][] = [
@@ -107,7 +107,9 @@ const testimonials: Testimonial[][] = [
   ],
 ];
 
-const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => {
+const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({
+  testimonial,
+}) => {
   return (
     <motion.div
       className="flex-shrink-0 w-[300px] p-6 rounded-xl"
@@ -151,17 +153,21 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
   );
 };
 
-const TestimonialColumn: React.FC<{ 
-  testimonials: Testimonial[],
-  direction: "up" | "down",
-  columnIndex: number
+const TestimonialColumn: React.FC<{
+  testimonials: Testimonial[];
+  direction: "up" | "down";
+  columnIndex: number;
 }> = ({ testimonials, direction, columnIndex }) => {
   return (
-    <div className={`relative h-[600px] overflow-hidden ${columnIndex > 0 ? 'hidden md:block' : ''}`}>
-      <motion.div 
+    <div
+      className={`relative h-[600px] overflow-hidden ${
+        columnIndex > 0 ? "hidden md:block" : ""
+      }`}
+    >
+      <motion.div
         className="flex flex-col gap-2"
         animate={{
-          y: direction === "up" ? [-1200, 0] : [0, -1200]
+          y: direction === "up" ? [-1200, 0] : [0, -1200],
         }}
         transition={{
           y: {
@@ -172,17 +178,22 @@ const TestimonialColumn: React.FC<{
           },
         }}
       >
-        {[...testimonials, ...testimonials, ...testimonials].map((testimonial, index) => (
-          <TestimonialCard key={`${direction}-${index}`} testimonial={testimonial} />
-        ))}
+        {[...testimonials, ...testimonials, ...testimonials].map(
+          (testimonial, index) => (
+            <TestimonialCard
+              key={`${direction}-${index}`}
+              testimonial={testimonial}
+            />
+          )
+        )}
       </motion.div>
     </div>
   );
 };
 
 const TestimonialSection: React.FC = () => {
-  const columns = testimonials[0].map((_, columnIndex) => 
-    testimonials.map(row => row[columnIndex])
+  const columns = testimonials[0].map((_, columnIndex) =>
+    testimonials.map((row) => row[columnIndex])
   );
 
   return (
@@ -218,7 +229,7 @@ const TestimonialSection: React.FC = () => {
         <div className="border-[1px] border-[#ffffff43] relative">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-8">
             {columns.map((columnTestimonials, index) => (
-              <TestimonialColumn 
+              <TestimonialColumn
                 key={index}
                 testimonials={columnTestimonials}
                 direction={index % 2 === 0 ? "up" : "down"}
@@ -226,7 +237,7 @@ const TestimonialSection: React.FC = () => {
               />
             ))}
           </div>
-          
+
           {/* Dashed borders */}
           <div className="hidden lg:block absolute top-0 bottom-0 right-[75.5%] transform -translate-x-1/2 border-l border-dashed border-[#FFFFFF43]"></div>
           <div className="hidden md:block absolute top-0 bottom-0 left-1/2 transform -translate-x-1/2 border-l border-dashed border-[#FFFFFF43]"></div>
