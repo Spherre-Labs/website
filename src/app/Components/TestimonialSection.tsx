@@ -1,6 +1,6 @@
-"use client";
-import React from "react";
-import { motion } from "framer-motion";
+'use client';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 interface Testimonial {
   name: string;
@@ -13,96 +13,96 @@ interface Testimonial {
 const testimonials: Testimonial[][] = [
   [
     {
-      name: "Alex Jephson",
-      role: "eJephs24",
+      name: 'Alex Jephson',
+      role: 'eJephs24',
       content:
-        "Sphere has revolutionized the way our team manages funds. The security and collaboration features are unparalleled!",
-      avatar: "/t1.png",
+        'Sphere has revolutionized the way our team manages funds. The security and collaboration features are unparalleled!',
+      avatar: '/t1.png',
       hasBadge: true,
     },
     {
-      name: "Sophia R",
-      role: "eJephs24",
+      name: 'Sophia R',
+      role: 'eJephs24',
       content:
         "Our startup relies on Sphere for team-based asset management. It gives us peace of mind knowing that funds can't move without collective approval.",
-      avatar: "/t2.png",
+      avatar: '/t2.png',
     },
     {
-      name: "Nancy K",
-      role: "eJephs24",
+      name: 'Nancy K',
+      role: 'eJephs24',
       content:
-        "The role-based permissions are a lifesaver. Our organization can now approve transactions in a secure and structured way.",
-      avatar: "/t3.png",
+        'The role-based permissions are a lifesaver. Our organization can now approve transactions in a secure and structured way.',
+      avatar: '/t3.png',
       hasBadge: true,
     },
     {
-      name: "Alice Mccan",
-      role: "Crypto Investor",
+      name: 'Alice Mccan',
+      role: 'Crypto Investor',
       content:
         "Sphere made our DAO's treasury management seamless and ultra-secure. The multisig setup ensures no single entity controls the assets, which is a game-changer.",
-      avatar: "/t4.png",
+      avatar: '/t4.png',
     },
   ],
   [
     {
-      name: "Laura P",
-      role: "eJephs24",
+      name: 'Laura P',
+      role: 'eJephs24',
       content:
-        "Multisig has never been this intuitive! Sphere provides an unmatched experience in managing digital assets securely with my team.",
-      avatar: "/t5.png",
+        'Multisig has never been this intuitive! Sphere provides an unmatched experience in managing digital assets securely with my team.',
+      avatar: '/t5.png',
     },
     {
-      name: "Ben S",
-      role: "eJephs24",
+      name: 'Ben S',
+      role: 'eJephs24',
       content:
         "Sphere revolutionized how we manage shared assets. No single point of failure means we're always protected.",
-      avatar: "/t6.png",
+      avatar: '/t6.png',
       hasBadge: true,
     },
     {
-      name: "Mark Benimaro",
-      role: "DAD Treasurer",
+      name: 'Mark Benimaro',
+      role: 'DAD Treasurer',
       content:
         "Finally, a multisig wallet that is scalable, affordable, and easy to use. Starknet's efficiency combined with Sphere's security is unbeatable.",
-      avatar: "/t7.png",
+      avatar: '/t7.png',
     },
     {
-      name: "James C*",
-      role: "eJephs24",
+      name: 'James C*',
+      role: 'eJephs24',
       content:
-        "With Sphere, we eliminated the risks of centralized control. Our business operates with enhanced security and efficiency.",
-      avatar: "/t8.png",
+        'With Sphere, we eliminated the risks of centralized control. Our business operates with enhanced security and efficiency.',
+      avatar: '/t8.png',
     },
   ],
   [
     {
-      name: "Daniel F.",
-      role: "eJephs24",
+      name: 'Daniel F.',
+      role: 'eJephs24',
       content:
         "Starknet's speed and Sphere's security make it the perfect combination for managing large-scale digital transactions.",
-      avatar: "/t9.png",
+      avatar: '/t9.png',
     },
     {
-      name: "Mark Oliver®",
-      role: "eJephs24",
+      name: 'Mark Oliver®',
+      role: 'eJephs24',
       content:
-        "Sphere has revolutionized the way our team manages funds. The security and collaboration features are unparalleled!",
-      avatar: "/t10.png",
+        'Sphere has revolutionized the way our team manages funds. The security and collaboration features are unparalleled!',
+      avatar: '/t10.png',
       hasBadge: true,
     },
     {
-      name: "Helen R",
-      role: "eheenrt",
+      name: 'Helen R',
+      role: 'eheenrt',
       content:
-        "Low fees, high security, and easy collaboration make Sphere the best multisig solution available today.",
-      avatar: "/t11.png",
+        'Low fees, high security, and easy collaboration make Sphere the best multisig solution available today.',
+      avatar: '/t11.png',
     },
     {
-      name: "Kelvin Bumas",
-      role: "eJephs24",
+      name: 'Kelvin Bumas',
+      role: 'eJephs24',
       content:
         "Sphere is hands down the best multisig wallet I've used. Highly recommend it for anyone managing digital assets collaboratively.",
-      avatar: "/t12.png",
+      avatar: '/t12.png',
     },
   ],
 ];
@@ -114,7 +114,7 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({
     <motion.div
       className="flex-shrink-0 w-[300px] p-6 rounded-xl"
       whileHover={{ scale: 1.05 }}
-      transition={{ type: "spring", stiffness: 300 }}
+      transition={{ type: 'spring', stiffness: 300 }}
     >
       <div className="flex items-center gap-4 mb-4">
         <div className="w-10 h-10 rounded-full overflow-hidden bg-[#1a1a1a] flex-shrink-0">
@@ -155,26 +155,26 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({
 
 const TestimonialColumn: React.FC<{
   testimonials: Testimonial[];
-  direction: "up" | "down";
+  direction: 'up' | 'down';
   columnIndex: number;
 }> = ({ testimonials, direction, columnIndex }) => {
   return (
     <div
       className={`relative h-[600px] overflow-hidden ${
-        columnIndex > 0 ? "hidden md:block" : ""
+        columnIndex > 0 ? 'hidden md:block' : ''
       }`}
     >
       <motion.div
         className="flex flex-col gap-2"
         animate={{
-          y: direction === "up" ? [-1200, 0] : [0, -1200],
+          y: direction === 'up' ? [-1200, 0] : [0, -1200],
         }}
         transition={{
           y: {
             repeat: Infinity,
-            repeatType: "loop",
+            repeatType: 'loop',
             duration: 30,
-            ease: "linear",
+            ease: 'linear',
           },
         }}
       >
@@ -232,7 +232,7 @@ const TestimonialSection: React.FC = () => {
               <TestimonialColumn
                 key={index}
                 testimonials={columnTestimonials}
-                direction={index % 2 === 0 ? "up" : "down"}
+                direction={index % 2 === 0 ? 'up' : 'down'}
                 columnIndex={index}
               />
             ))}
