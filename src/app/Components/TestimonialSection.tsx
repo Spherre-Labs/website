@@ -224,7 +224,6 @@ const TestimonialSection: React.FC = () => {
             ))}
           </div>
         </div>
-
         <div className="flex flex-col ml-5 md:ml-20 py-12">
           <div className="w-[90rem]">
             <div className="flex items-center gap-1">
@@ -366,8 +365,6 @@ const TestimonialSection: React.FC = () => {
           </div>
           {/* finish here */}
         </div>
-
-
         <div className="border-[1px] border-[#ffffff43] border-b-0 p-4 md:p-8">
           <h2 className="md:text-[2.5rem] text-xl font-extrabold">
             <span className="text-white">Loved by Teams & </span>
@@ -412,7 +409,6 @@ const TestimonialSection: React.FC = () => {
             ))}
           </div>
         </div>
-
         {/* Call to Action Section */}
         <div className="bg-[#101213] text-white py-8 md:py-16">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
