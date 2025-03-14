@@ -10,31 +10,46 @@ import {
   SpherreLogo,
 } from "../../../public/icons";
 import Image from "next/image";
+import Eclipse from "../../../public/Spherre-eclipse.png";
 
 const nunito = Nunito_Sans({ subsets: ["latin"], weight: ["400", "500"] });
 const roboto = Roboto_Mono({ subsets: ["latin"], weight: ["400", "500"] });
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0D0D0D] text-gray-400 py-12">
+    <footer className="bg-[#101213] text-gray-400 p-0 md:py-12 relative overflow-hidden">
+      {/* Eclipse arc light effect at top */}
+      {/* Eclipse arc light effect at top - responsive height and clip path */}
+      <div className="relative w-full overflow-hidden" style={{ height: '350px' }}>
+        <Image
+          src={Eclipse}
+          alt="comet"
+          width={1500}
+          height={800}
+          className="w-full mx-auto object-cover object-top"
+          style={{
+            clipPath: "polygon(0 0, 100% 0, 100% 60%, 0 60%)",
+            height: '100%'
+          }}
+          priority
+        />
+      </div>
+      {/* Footer Content */}
       <div className="container mx-auto px-4 space-y-[72px] max-w-7xl">
-        <div
-          className="flex-col lg:flex-row items-start flex w-full justify-between
-         gap-12"
-        >
-          <div className="md:col-span-3 md:w-1/5 ">
+        <div className="flex flex-col lg:flex-row items-start w-full justify-between gap-12">
+          {/* Logo Section */}
+          <div className="md:col-span-3 md:w-1/5">
             <Link href="/" className="flex items-center gap-2">
-              <Image src={SpherreLogo} alt="x-icon" />
+              <Image src={SpherreLogo} alt="Spherre Logo" />
               <span className="text-white text-xl font-semibold">Spherre</span>
             </Link>
           </div>
 
+          {/* Grid Sections */}
           <div className="grid grid-cols-2 gap-10 sm:gap-0 sm:flex justify-between w-full">
             {/* Product Section */}
             <div className="md:col-span-2 space-y-7">
-              <h3
-                className={`${roboto.className} text-white font-bold text-lg mb-4`}
-              >
+              <h3 className={`${roboto.className} text-white font-bold text-lg mb-4`}>
                 Product
               </h3>
               <ul className={`${nunito.className} space-y-3`}>
@@ -64,10 +79,10 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
+
+            {/* Resources Section */}
             <div className="md:col-span-2 space-y-7">
-              <h3
-                className={`${roboto.className} text-white font-bold text-lg mb-4`}
-              >
+              <h3 className={`${roboto.className} text-white font-bold text-lg mb-4`}>
                 Resources
               </h3>
               <ul className={`${nunito.className} space-y-3`}>
@@ -105,10 +120,10 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
+
+            {/* Legal Section */}
             <div className="md:col-span-2 space-y-7">
-              <h3
-                className={`${roboto.className} text-white font-bold text-lg mb-4`}
-              >
+              <h3 className={`${roboto.className} text-white font-bold text-lg mb-4`}>
                 Legal
               </h3>
               <ul className={`${nunito.className} space-y-3`}>
@@ -130,10 +145,10 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
+
+            {/* Socials Section */}
             <div className="md:col-span-3 space-y-7">
-              <h3
-                className={`${roboto.className} text-white font-bold text-lg mb-4`}
-              >
+              <h3 className={`${roboto.className} text-white font-bold text-lg mb-4`}>
                 Socials
               </h3>
               <ul className={`${nunito.className} space-y-3`}>
@@ -142,7 +157,7 @@ export default function Footer() {
                     href="https://twitter.com"
                     className="flex items-center gap-2 hover:text-white transition-colors text-[#808080] text-sm"
                   >
-                    <Image src={XIcon} alt="x-icon" />
+                    <Image src={XIcon} alt="Twitter Icon" />
                     <span>Twitter</span>
                   </Link>
                 </li>
@@ -151,7 +166,7 @@ export default function Footer() {
                     href="https://github.com"
                     className="flex items-center gap-2 hover:text-white transition-colors text-[#808080] text-sm"
                   >
-                    <Image src={GithubIcon} alt="x-icon" />
+                    <Image src={GithubIcon} alt="GitHub Icon" />
                     <span>GitHub</span>
                   </Link>
                 </li>
@@ -160,7 +175,7 @@ export default function Footer() {
                     href="https://linkedin.com"
                     className="flex items-center gap-2 hover:text-white transition-colors text-[#808080] text-sm"
                   >
-                    <Image src={LinkedinIcon} alt="x-icon" />
+                    <Image src={LinkedinIcon} alt="LinkedIn Icon" />
                     <span>LinkedIn</span>
                   </Link>
                 </li>
@@ -169,7 +184,7 @@ export default function Footer() {
                     href="https://youtube.com"
                     className="flex items-center gap-2 hover:text-white transition-colors text-[#808080] text-sm"
                   >
-                    <Image src={YoutubeIcon} alt="x-icon" />
+                    <Image src={YoutubeIcon} alt="YouTube Icon" />
                     <span>YouTube</span>
                   </Link>
                 </li>
@@ -178,7 +193,7 @@ export default function Footer() {
                     href="https://instagram.com"
                     className="flex items-center gap-2 hover:text-white transition-colors text-[#808080] text-sm"
                   >
-                    <Image src={InstagramIcon} alt="x-icon" />
+                    <Image src={InstagramIcon} alt="Instagram Icon" />
                     <span>Instagram</span>
                   </Link>
                 </li>
@@ -187,6 +202,7 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Copyright Section */}
         <div
           className={`${roboto.className} flex flex-col md:flex-row justify-between md:items-center pt-8 border-t border-gray-800`}
         >
