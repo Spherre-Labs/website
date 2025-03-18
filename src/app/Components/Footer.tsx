@@ -18,8 +18,6 @@ const roboto = Roboto_Mono({ subsets: ["latin"], weight: ["400", "500"] });
 export default function Footer() {
   return (
     <footer className="bg-[#101213] text-gray-400 p-0 md:py-12 relative overflow-hidden">
-      {/* Eclipse arc light effect at top */}
-      {/* Eclipse arc light effect at top - responsive height and clip path */}
       <div className="relative w-full overflow-hidden" style={{ height: '350px' }}>
         <Image
           src={Eclipse}
