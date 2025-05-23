@@ -10,13 +10,13 @@ export default function Nav() {
   // Prevent scrolling when nav is open
   useEffect(() => {
     if (isNavOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
 
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     };
   }, [isNavOpen]);
 

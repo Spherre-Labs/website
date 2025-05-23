@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="mb-8">
           <div className="bg-gray-800 cursor-pointer py-3 mx-auto px-14 rounded-full flex w-fit items-center gap-4 md:gap-2">
-            <div className="flex gap-2 items-center" >
+            <div className="flex gap-2 items-center">
               <Image src={Play} width={10} height={10} alt="Play" />
               <p className="text-xs md:text-sm">Introduction to Spherre</p>
             </div>
@@ -27,39 +27,47 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="">
-      <div>
-        <p className="text-xs md:text-lg md:text-xl mb-8 mx-auto max-w-3xl">
-          Spherre ensures that no single point of failure exists, empowering individuals, teams, and organizations with efficient, scalable, and low-cost solutions.
-        </p>
-        <div className="flex flex-col md:flex-row justify-center gap-4 mb-12">
-          <button className="px-6 py-3 bg-black text-white rounded-full text-base font-medium shadow-md hover:bg-gray-800 transition-all duration-200">
-            Book a Demo
-          </button>
-          <button className="px-6 py-3 bg-white text-black rounded-full text-base font-medium shadow-md hover:bg-gray-200 transition-all duration-200">
-            Learn More
-          </button>
-        </div>
+        <div>
+          <p className="text-xs md:text-lg md:text-xl mb-8 mx-auto max-w-3xl">
+            Spherre ensures that no single point of failure exists, empowering
+            individuals, teams, and organizations with efficient, scalable, and
+            low-cost solutions.
+          </p>
+          <div className="flex flex-col md:flex-row justify-center gap-4 mb-12">
+            <button className="px-6 py-3 bg-black text-white rounded-full text-base font-medium shadow-md hover:bg-gray-800 transition-all duration-200">
+              Book a Demo
+            </button>
+            <button className="px-6 py-3 bg-white text-black rounded-full text-base font-medium shadow-md hover:bg-gray-200 transition-all duration-200">
+              Learn More
+            </button>
+          </div>
 
-        <Image src={HeroImage} width={800} height={100} alt="spherre" className="mx-auto block md:hidden" />
-      </div>
-
-      {/* Hero Image - Position at bottom and make larger */}
-      <div className="relative mt-4 mx-auto w-full max-w-5xl h-50vh md:h-[450px]">
-        <div className="absolute left-0 right-0 -bottom-[24.65rem]">
           <Image
             src={HeroImage}
-            alt="Hero Image"
-            width={1000}
-            height={600}
-            className="mx-auto hidden md:block"
-            style={{
-              objectFit: "contain",
-              objectPosition: "bottom",
-              clipPath: "polygon(0 0, 100% 0, 100% 60%, 0 60%)"
-            }}
+            width={800}
+            height={100}
+            alt="spherre"
+            className="mx-auto block md:hidden"
           />
         </div>
-      </div>
+
+        {/* Hero Image - Position at bottom and make larger */}
+        <div className="relative mt-4 mx-auto w-full max-w-5xl h-50vh md:h-[450px]">
+          <div className="absolute left-0 right-0 -bottom-[24.65rem]">
+            <Image
+              src={HeroImage}
+              alt="Hero Image"
+              width={1000}
+              height={600}
+              className="mx-auto hidden md:block"
+              style={{
+                objectFit: "contain",
+                objectPosition: "bottom",
+                clipPath: "polygon(0 0, 100% 0, 100% 60%, 0 60%)",
+              }}
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

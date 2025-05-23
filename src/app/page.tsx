@@ -10,16 +10,18 @@ export default function Home() {
     <div className="bg-[#101213]">
       <Nav />
       <div className="border border-[#ffffff43] bg-[#101213] mx-10">
-        <div style={{
-          backgroundImage: "url('/Ellipse.png')",
-          backgroundSize: "120%",
-          width: "100%",
-          height: "80%",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          // backgroundBlendMode: "overlay",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
-        }}>
+        <div
+          style={{
+            backgroundImage: "url('/Ellipse.png')",
+            backgroundSize: "120%",
+            width: "100%",
+            height: "80%",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            // backgroundBlendMode: "overlay",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+          }}
+        >
           <Hero />
         </div>
         <Features />

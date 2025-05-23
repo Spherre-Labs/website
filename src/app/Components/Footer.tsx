@@ -27,7 +27,6 @@ export default function Footer() {
           width={2000}
           height={40}
           className="mx-auto object-cover object-top lg:mb-[-50%]"
-          
         />
       </div>
       {/* Footer Content */}
@@ -43,7 +42,9 @@ export default function Footer() {
 
           {/* Product Section */}
           <div className="space-y-2 flex flex-col items-center lg:items-end">
-            <h3 className={`${roboto.className} text-white font-bold text-lg mb-4`}>
+            <h3
+              className={`${roboto.className} text-white font-bold text-lg mb-4`}
+            >
               Product
             </h3>
             <ul className={`${nunito.className} space-y-3`}>
@@ -76,7 +77,9 @@ export default function Footer() {
 
           {/* Resources Section */}
           <div className="space-y-2 flex flex-col items-center lg:items-end">
-            <h3 className={`${roboto.className} text-white font-bold text-lg mb-4`}>
+            <h3
+              className={`${roboto.className} text-white font-bold text-lg mb-4`}
+            >
               Resources
             </h3>
             <ul className={`${nunito.className} space-y-3`}>
@@ -117,7 +120,9 @@ export default function Footer() {
 
           {/* Legal Section */}
           <div className="space-y-2 flex flex-col items-center lg:items-end">
-            <h3 className={`${roboto.className} text-white font-bold text-lg mb-4 flex items-start`}>
+            <h3
+              className={`${roboto.className} text-white font-bold text-lg mb-4 flex items-start`}
+            >
               Legal
             </h3>
             <ul className={`${nunito.className} space-y-3`}>
@@ -142,7 +147,9 @@ export default function Footer() {
 
           {/* Socials Section */}
           <div className="space-y-2 flex flex-col items-center lg:items-end">
-            <h3 className={`${roboto.className} text-white font-bold text-lg mb-4`}>
+            <h3
+              className={`${roboto.className} text-white font-bold text-lg mb-4`}
+            >
               Socials
             </h3>
             <ul className={`${nunito.className} space-y-3`}>
