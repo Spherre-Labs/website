@@ -1,11 +1,16 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Signature from "../../../public/Signature.png";
 import Approval from "../../../public/Approval.png";
 import StarknetButton from "../../../public/Starknet-Button.png";
-import walletsetup from "../../../public/walletsetup.png";
+import walletsetup from "../../../public/mywalletsetup.png";
+import Membersmgt from "../../../public/mymembermgt.png";
+import Threshold from "../../../public/Threshold.png";
+import mgttransactions from "../../../public/mytransactionsmgt.png";
+import Rolemgt from "../../../public/Rolemgt.png";
+import Transactionmgt from "../../../public/Transactionmgt.png";
 
 interface Testimonial {
   name: string;
@@ -112,6 +117,28 @@ const testimonials: Testimonial[][] = [
   ],
 ];
 
+const steps = [
+  {
+    number: 1,
+    title: "Create or connect your existing wallet to Sphere's platform.",
+    image: walletsetup,
+    imageAlt: "Wallet setup interface",
+  },
+  {
+    number: 2,
+    title: "Invite and assign members to your multi-signature account.",
+    image: Membersmgt,
+    imageAlt: "Members management interface",
+  },
+  {
+    number: 3,
+    title: "Set your transaction threshold and manage roles securely.",
+    image: mgttransactions,
+    imageAlt: "Threshold configuration interface",
+  },
+  // Add more steps as needed
+];
+
 const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({
   testimonial,
 }) => {
@@ -202,6 +229,8 @@ const TestimonialSection: React.FC = () => {
     testimonials.map((row) => row[columnIndex])
   );
 
+  const [index, setIndex] = useState(0);
+
   return (
     <div className="bg-[#101213] py-16">
       <div className="w-full mx-auto">
@@ -224,15 +253,28 @@ const TestimonialSection: React.FC = () => {
             ))}
           </div>
         </div>
-        <div className="flex flex-col ml-5 md:ml-20 py-12">
-          <div className="w-[90rem]">
-            <div className="flex items-center gap-1">
-              <Image src={Signature} alt="signature" width={20} height={20} />
-              <p className="opacity-60 text-[18px] md:text-[24px] tracking-wider">Multi signature operation</p>
+        <div>
+          <div className="flex flex-col ml-5 md:ml-20 py-12">
+            <div className="w-[90rem]">
+              <div className="flex items-center gap-1">
+                <Image src={Signature} alt="signature" width={20} height={20} />
+                <p className="opacity-60 text-[18px] md:text-[24px] tracking-wider">Multi signature operation</p>
+              </div>
+              <p className="font-bold text-xl w-[60%] md:w-full md:text-[30px] pr-[33rem] leading-[36px] md:leading-[42px]">
+                Requires approval from designated account members for most <span className="opacity-40">write operations, extending beyond just fund transfers.</span>
+              </p>
             </div>
-            <p className="font-bold text-xl w-[60%] md:w-full md:text-[30px] pr-[33rem] leading-[36px] md:leading-[42px]">Requires approval from designated account members for most <span className="opacity-40">write operations, extending beyond just fund transfers.</span></p>
           </div>
-          <Image src={Approval} alt="Approval" width={800} height={100} className="mt-4 w-[300px] md:w-[800px]" />
+          <div className="mt-[-25%] flex justify-start mx-20">
+            <Image
+              src={Approval}
+              alt="Approval"
+              width={2800}
+              height={200}
+              className=""
+              style={{ objectFit: "contain" }}
+            />
+          </div>
         </div>
 
         <div className="flex flex-col md:flex-row border-t justify-between px-4 md:px-20 border-[#ffffff43] border-b-0 relative">
@@ -245,7 +287,7 @@ const TestimonialSection: React.FC = () => {
               </div>
               <p className="font-bold text-[24px] md:text-[30px] leading-[36px] md:leading-[42px]">Enables the addition and removal of members within <span className="opacity-40">the multi-signature account.</span></p>
             </div>
-            <Image src={Approval} alt="Approval" width={650} height={100} className="my-12 md:my-44" />
+            <Image src={Membersmgt} alt="Approval" width={650} height={100} className="my-12 md:my-44" />
           </div>
 
           {/* Center divider - responsive positioning */}
@@ -265,7 +307,7 @@ const TestimonialSection: React.FC = () => {
               </div>
               <p className="font-bold text-[24px] md:text-[30px] leading-[36px] md:leading-[42px]">Allows users to set the minimum number of required <span className="opacity-40">signatures to authorize a multi-signature operation.</span></p>
             </div>
-            <Image src={Approval} alt="Approval" width={650} height={100} className="my-12 md:my-44" />
+            <Image src={Threshold} alt="Approval" width={850} height={100} className=" mx-auto mt-[-20%]" />
           </div>
         </div>
 
@@ -277,7 +319,7 @@ const TestimonialSection: React.FC = () => {
             </div>
             <p className="font-bold text-[22px] md:text-[30px] leading-[36px] md:leading-[42px] w-full md:w-[963px]">Provides the ability to assign and revoke <span className="opacity-40">specific roles for account members.</span></p>
           </div>
-          <Image src={Approval} alt="Approval" width={650} height={100} className="mb-12 md:mb-28 mx-auto" />
+          <Image src={Rolemgt} alt="Approval" width={2600} height={100} className="mb-12 md:mb-28 px-20 mt-[-20%]" />
         </div>
 
         <div className="border-t border-[#ffffff43] border-b-0">
@@ -288,7 +330,7 @@ const TestimonialSection: React.FC = () => {
             </div>
             <p className="font-bold text-[22px] md:text-[30px] leading-[36px] md:leading-[42px] w-full md:w-[963px]">Covers the entire transaction lifecycle, including proposal <span className="opacity-40">submission, member approval or rejection, and final execution.</span></p>
           </div>
-          <Image src={Approval} alt="Approval" width={650} height={100} className="mb-12 md:mb-28 mx-auto" />
+          <Image src={Transactionmgt} alt="Approval" width={2600} height={100} className="mb-12 md:mb-28 mx-auto mt-[-15%] px-20" />
         </div>
 
         <div>
@@ -311,56 +353,24 @@ const TestimonialSection: React.FC = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 mx-4 md:mx-0">
-                <div className="border-t border-l border-b border-r md:border-r-0 border-[#ffffff43] p-6 md:p-8">
-                  <div className="flex flex-col h-full">
-                    <div className="mb-6">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
-                      </svg>
+                {steps.map((step, i) => (
+                  <div
+                    key={i}
+                    className={`border-t border-l border-b border-r md:border-r-0 border-[#ffffff43] p-6 md:p-8 transition-colors duration-300 ${
+                      i === index ? 'bg-[#1E2021]' : ''
+                    }`}
+                  >
+                    <div className="flex flex-col h-full items-center">
+                      <div className="mb-6">
+                        <span className="w-8 h-8 flex items-center justify-center text-white font-bold">{step.number}</span>
+                      </div>
+                      <h3 className="text-lg font-medium mb-2 text-center">{step.title}</h3>
                     </div>
-                    <h3 className="text-lg font-medium mb-2">Set Up Your Wallet</h3>
                   </div>
-                </div>
-
-                <div className="border-t md:border-t border-b border-l border-r md:border-r-0 border-[#ffffff43] p-6 md:p-8">
-                  <div className="flex flex-col h-full">
-                    <div className="mb-6">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                      </svg>
-                    </div>
-                    <h3 className="text-lg font-medium mb-2">Invite & Assign Members</h3>
-                  </div>
-                </div>
-
-                <div className="border-t border-b md:border-t border-l border-r border-[#ffffff43] p-6 md:p-8">
-                  <div className="flex flex-col h-full">
-                    <div className="mb-6">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
-                      </svg>
-                    </div>
-                    <h3 className="text-lg font-medium mb-2">Manage Transactions</h3>
-                  </div>
-                </div>
+                ))}
               </div>
 
-
-              <div className="flex flex-col gap-2 mt-8 md:mt-16 pb-8 md:pb-16 px-4 md:pl-20 border-b border-[#ffffff43]">
-                <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full border border-[#ffffff43]">
-                  <span className="text-base md:text-lg font-bold">1</span>
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold mb-4 w-full md:w-[611px]">Create or connect your existing wallet to Sphere&apos;s platform.</h3>
-                <div className="w-full overflow-x-auto">
-                  <Image
-                    src={walletsetup}
-                    alt="Wallet setup interface"
-                    width={1800}
-                    height={300}
-                    className="min-w-full"
-                  />
-                </div>
-              </div>
+              <StepsCarousel index={index} setIndex={setIndex} />
             </div>
           </div>
           {/* finish here */}
@@ -430,5 +440,49 @@ const TestimonialSection: React.FC = () => {
     </div>
   );
 };
+
+export function StepsCarousel({
+  index,
+  setIndex,
+}: {
+  index: number;
+  setIndex: React.Dispatch<React.SetStateAction<number>>;
+}) {
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % steps.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [setIndex]);
+
+  const current = steps[index];
+
+  return (
+    <div className="flex flex-col gap-2 mt-8 md:mt-16 pb-8 md:pb-16 px-4 md:pl-20 border-b border-[#ffffff43]">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -40 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
+          <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full border border-[#ffffff43]">
+            <span className="text-base md:text-lg font-bold">{current.number}</span>
+          </div>
+          <h3 className="text-xl md:text-2xl font-bold mb-4 w-full md:w-[611px]">{current.title}</h3>
+          <div className="w-full overflow-x-auto">
+            <Image
+              src={current.image}
+              alt={current.imageAlt}
+              height={300}
+              className="min-w-full"
+            />
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default TestimonialSection;
