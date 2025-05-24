@@ -11,33 +11,36 @@ Spherre is a decentralized multisignature treasury solution built on StarkNet. I
 To get started with the Spherre website locally, follow these steps:
 
 ### Prerequisites
+
 - Node.js (v18 or higher recommended)
 - A package manager like npm, yarn, pnpm, or bun
 
 ### Installation
 
 1. **Fork and clone Clone the repository**:
+
    ```bash
    git clone https://github.com/your-username/spherre-website.git
    cd spherre-website
    ```
 
 2. **Install dependencies:**
-     ```bash
+   ```bash
    npm install
-     ```
- 
+   ```
+
 ### Running the Development Server
 
 1. To start the project locally, run:
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
 After running the command, open http://localhost:3000 in your browser
 
 ### Guidelines For Developers Hoping To Contribute:
+
 Please review the Figma designs in prototype mode to understand any animations, transitions, or interactions that need to be implemented.
 
 Ensure all components are responsive and adhere to the design system.

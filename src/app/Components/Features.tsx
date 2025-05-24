@@ -9,7 +9,9 @@ function Features() {
             <p>Secure, scalable, and user-friendly</p>
             <p className="font-bold">
               multisig sol
-              <span className="text-[#9fa0a1]">utions built on Starknet for</span>
+              <span className="text-[#9fa0a1]">
+                utions built on Starknet for
+              </span>
             </p>
             <p className="text-[#9fa0a1]">
               individuals, teams, and organizations.
@@ -20,9 +22,7 @@ function Features() {
             Explore All Features
           </button>
         </div>
-
       </section>
-
     </div>
   );
 }
