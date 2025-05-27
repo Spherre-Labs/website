@@ -224,11 +224,21 @@ const TestimonialSection: React.FC = () => {
             ))}
           </div>
         </div>
-        <div className="flex flex-col ml-5 md:ml-20 py-12">
-          <div className="w-[90rem]">
-            <div className="flex items-center gap-1">
-              <Image src={Signature} alt="signature" width={20} height={20} />
-              <p className="opacity-60 text-[18px] md:text-[24px] tracking-wider">Multi signature operation</p>
+        <div>
+          <div className="flex flex-col ml-5 md:ml-20 py-12">
+            <div className="w-[90rem]">
+              <div className="flex items-center gap-1">
+                <Image src={Signature} alt="signature" width={20} height={20} />
+                <p className="opacity-60 text-[18px] md:text-[24px] tracking-wider">
+                  Multi signature operation
+                </p>
+              </div>
+              <p className="font-bold text-xl w-[58%] md:w-full md:text-[30px] pr-[33rem] leading-[36px] md:leading-[42px]">
+                Requires approval from designated account members for most{" "}
+                <span className="opacity-40">
+                  write operations, extending beyond just fund transfers.
+                </span>
+              </p>
             </div>
             <p className="font-bold text-xl w-[60%] md:w-full md:text-[30px] pr-[33rem] leading-[36px] md:leading-[42px]">Requires approval from designated account members for most <span className="opacity-40">write operations, extending beyond just fund transfers.</span></p>
           </div>
