@@ -19,18 +19,16 @@ export default function Footer() {
   return (
     <footer className="bg-[#101213] text-gray-400 px-4 sm:px-6 md:px-8 lg:px-10 relative overflow-hidden">
       {/* Eclipse arc light effect at top */}
+    <footer className="bg-[#101213] text-gray-400 px-10 relative overflow-hidden">
+      {/* Eclipse arc light effect at top */}
+      {/* Eclipse arc light effect at top - responsive height and clip path */}
       <div className="relative w-full overflow-hidden">
         <Image
           src={Eclipse}
           alt="comet"
-          width={1500}
-          height={800}
-          className="w-full mx-auto object-cover object-top"
-          style={{
-            clipPath: "polygon(0 0, 100% 0, 100% 60%, 0 60%)",
-            height: '100%'
-          }}
-          priority
+          width={2000}
+          height={40}
+          className="mx-auto object-cover object-top lg:mb-[-50%]"
         />
       </div>
       {/* Footer Content */}
@@ -38,6 +36,10 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 w-full">
           {/* Logo Section */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-1 flex items-start lg:justify-start justify-center mb-4 lg:mb-0">
+      <div className="pt-10 pb-2">
+        <div className="grid grid-cols-1 lg:grid-cols-5 w-full">
+          {/* Logo Section */}
+          <div className="flex items-start lg:justify-start justify-center mb-8 lg:mb-0">
             <Link href="/" className="flex items-center gap-2">
               <Image src={SpherreLogo} alt="Spherre Logo" />
               <span className="text-white text-xl font-semibold">Spherre</span>
@@ -46,6 +48,7 @@ export default function Footer() {
 
           {/* Product Section */}
           <div className="space-y-2 flex flex-col items-start sm:items-center lg:items-end">
+          <div className="space-y-2 flex flex-col items-center lg:items-end">
             <h3
               className={`${roboto.className} text-white font-bold text-lg mb-4`}
             >
@@ -81,6 +84,7 @@ export default function Footer() {
 
           {/* Resources Section */}
           <div className="space-y-2 flex flex-col items-start sm:items-center lg:items-end">
+          <div className="space-y-2 flex flex-col items-center lg:items-end">
             <h3
               className={`${roboto.className} text-white font-bold text-lg mb-4`}
             >
@@ -124,6 +128,7 @@ export default function Footer() {
 
           {/* Legal Section */}
           <div className="space-y-2 flex flex-col items-start sm:items-center lg:items-end">
+          <div className="space-y-2 flex flex-col items-center lg:items-end">
             <h3
               className={`${roboto.className} text-white font-bold text-lg mb-4 flex items-start`}
             >
@@ -151,6 +156,7 @@ export default function Footer() {
 
           {/* Socials Section */}
           <div className="space-y-2 flex flex-col items-start sm:items-center lg:items-end">
+          <div className="space-y-2 flex flex-col items-center lg:items-end">
             <h3
               className={`${roboto.className} text-white font-bold text-lg mb-4`}
             >
@@ -208,7 +214,7 @@ export default function Footer() {
 
         {/* Copyright Section */}
         <div
-          className={`${roboto.className} flex flex-col md:flex-row justify-between md:items-center pt-8 border-t border-gray-800`}
+          className={`${roboto.className} flex flex-col md:flex-row justify-between md:items-center pt-8`}
         >
           <p className="text-sm mb-4 md:mb-0">
             Copyright © {new Date().getFullYear()} Spherre all rights reserved

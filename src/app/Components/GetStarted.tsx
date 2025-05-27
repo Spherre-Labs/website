@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function GetStarted() {
-  return (
-    <div>GetStarted</div>
-  )
+  return <div>GetStarted</div>;
 }
 
-export default GetStarted
+export default GetStarted;
