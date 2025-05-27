@@ -17,6 +17,8 @@ const roboto = Roboto_Mono({ subsets: ["latin"], weight: ["400", "500"] });
 
 export default function Footer() {
   return (
+    <footer className="bg-[#101213] text-gray-400 px-4 sm:px-6 md:px-8 lg:px-10 relative overflow-hidden">
+      {/* Eclipse arc light effect at top */}
     <footer className="bg-[#101213] text-gray-400 px-10 relative overflow-hidden">
       {/* Eclipse arc light effect at top */}
       {/* Eclipse arc light effect at top - responsive height and clip path */}
@@ -30,6 +32,10 @@ export default function Footer() {
         />
       </div>
       {/* Footer Content */}
+      <div className="pt-8 sm:pt-10 pb-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 w-full">
+          {/* Logo Section */}
+          <div className="col-span-2 sm:col-span-3 lg:col-span-1 flex items-start lg:justify-start justify-center mb-4 lg:mb-0">
       <div className="pt-10 pb-2">
         <div className="grid grid-cols-1 lg:grid-cols-5 w-full">
           {/* Logo Section */}
@@ -41,6 +47,7 @@ export default function Footer() {
           </div>
 
           {/* Product Section */}
+          <div className="space-y-2 flex flex-col items-start sm:items-center lg:items-end">
           <div className="space-y-2 flex flex-col items-center lg:items-end">
             <h3
               className={`${roboto.className} text-white font-bold text-lg mb-4`}
@@ -76,6 +83,7 @@ export default function Footer() {
           </div>
 
           {/* Resources Section */}
+          <div className="space-y-2 flex flex-col items-start sm:items-center lg:items-end">
           <div className="space-y-2 flex flex-col items-center lg:items-end">
             <h3
               className={`${roboto.className} text-white font-bold text-lg mb-4`}
@@ -119,6 +127,7 @@ export default function Footer() {
           </div>
 
           {/* Legal Section */}
+          <div className="space-y-2 flex flex-col items-start sm:items-center lg:items-end">
           <div className="space-y-2 flex flex-col items-center lg:items-end">
             <h3
               className={`${roboto.className} text-white font-bold text-lg mb-4 flex items-start`}
@@ -146,6 +155,7 @@ export default function Footer() {
           </div>
 
           {/* Socials Section */}
+          <div className="space-y-2 flex flex-col items-start sm:items-center lg:items-end">
           <div className="space-y-2 flex flex-col items-center lg:items-end">
             <h3
               className={`${roboto.className} text-white font-bold text-lg mb-4`}

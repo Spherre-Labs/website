@@ -264,7 +264,7 @@ const TestimonialSection: React.FC = () => {
                   Multi signature operation
                 </p>
               </div>
-              <p className="font-bold text-xl w-[60%] md:w-full md:text-[30px] pr-[33rem] leading-[36px] md:leading-[42px]">
+              <p className="font-bold text-xl w-[58%] md:w-full md:text-[30px] pr-[33rem] leading-[36px] md:leading-[42px]">
                 Requires approval from designated account members for most{" "}
                 <span className="opacity-40">
                   write operations, extending beyond just fund transfers.

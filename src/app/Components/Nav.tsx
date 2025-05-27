@@ -3,9 +3,11 @@ import Image from "next/image";
 import SpherreLogo from "../../public/logo.svg";
 import { useState, useEffect } from "react";
 import { FiAlignCenter, FiX } from "react-icons/fi";
+import ConstructionModal from "./ConstructionModal";
 
 export default function Nav() {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Prevent scrolling when nav is open
   useEffect(() => {
@@ -22,6 +24,13 @@ export default function Nav() {
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
+  };
+
+  const handleAppClick = () => {
+    setIsModalOpen(true);
+    if (isNavOpen) {
+      setIsNavOpen(false);
+    }
   };
 
   return (
@@ -55,7 +64,10 @@ export default function Nav() {
 
         {/* Mobile Navigation Toggle Button */}
         <div className="flex space-x-3">
-          <button className="bg-white text-black py-2 px-5 rounded-full hidden md:block">
+          <button 
+            onClick={handleAppClick}
+            className="bg-white text-black py-2 px-5 rounded-full hidden md:block hover:bg-gray-100 transition-colors"
+          >
             Open App
           </button>
           <button
@@ -87,13 +99,22 @@ export default function Nav() {
               Twitter
             </li>
             <li>
-              <button className="bg-white text-black py-2 px-8 rounded-full text-xl mt-8">
+              <button 
+                onClick={handleAppClick}
+                className="bg-white text-black py-2 px-8 rounded-full text-xl mt-8 hover:bg-gray-100 transition-colors"
+              >
                 Open App
               </button>
             </li>
           </ul>
         </div>
       )}
+
+      {/* Construction Modal */}
+      <ConstructionModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </header>
   );
 }
