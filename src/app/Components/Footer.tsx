@@ -10,19 +10,16 @@ import {
   SpherreLogo,
 } from "../../../public/icons";
 import Image from "next/image";
-import Eclipse from "../../../public/Spherre-eclipse.png";
+// import Eclipse from "../../../public/Spherre-eclipse.png"; // Commented out because file is missing
 
 const nunito = Nunito_Sans({ subsets: ["latin"], weight: ["400", "500"] });
 const roboto = Roboto_Mono({ subsets: ["latin"], weight: ["400", "500"] });
 
 export default function Footer() {
   return (
-    {/* <footer className="bg-[#101213] text-gray-400 px-4 sm:px-6 md:px-8 lg:px-10 relative overflow-hidden"> */}
-      {/* Eclipse arc light effect at top */}
     <footer className="bg-[#101213] text-gray-400 px-10 relative overflow-hidden">
-      {/* Eclipse arc light effect at top */}
-      {/* Eclipse arc light effect at top - responsive height and clip path */}
-      <div className="relative w-full overflow-hidden">
+      {/* Eclipse arc light effect at top - commented out due to missing file */}
+      {/* <div className="relative w-full overflow-hidden">
         <Image
           src={Eclipse}
           alt="comet"
@@ -30,16 +27,12 @@ export default function Footer() {
           height={40}
           className="mx-auto object-cover object-top lg:mb-[-50%]"
         />
-      </div>
+      </div> */}
       {/* Footer Content */}
       <div className="pt-8 sm:pt-10 pb-2">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 w-full">
           {/* Logo Section */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-1 flex items-start lg:justify-start justify-center mb-4 lg:mb-0">
-      <div className="pt-10 pb-2">
-        <div className="grid grid-cols-1 lg:grid-cols-5 w-full">
-          {/* Logo Section */}
-          <div className="flex items-start lg:justify-start justify-center mb-8 lg:mb-0">
             <Link href="/" className="flex items-center gap-2">
               <Image src={SpherreLogo} alt="Spherre Logo" />
               <span className="text-white text-xl font-semibold">Spherre</span>
@@ -47,7 +40,6 @@ export default function Footer() {
           </div>
 
           {/* Product Section */}
-          <div className="space-y-2 flex flex-col items-start sm:items-center lg:items-end">
           <div className="space-y-2 flex flex-col items-center lg:items-end">
             <h3
               className={`${roboto.className} text-white font-bold text-lg mb-4`}
@@ -83,7 +75,6 @@ export default function Footer() {
           </div>
 
           {/* Resources Section */}
-          <div className="space-y-2 flex flex-col items-start sm:items-center lg:items-end">
           <div className="space-y-2 flex flex-col items-center lg:items-end">
             <h3
               className={`${roboto.className} text-white font-bold text-lg mb-4`}
@@ -127,10 +118,9 @@ export default function Footer() {
           </div>
 
           {/* Legal Section */}
-          <div className="space-y-2 flex flex-col items-start sm:items-center lg:items-end">
           <div className="space-y-2 flex flex-col items-center lg:items-end">
             <h3
-              className={`${roboto.className} text-white font-bold text-lg mb-4 flex items-start`}
+              className={`${roboto.className} text-white font-bold text-lg mb-4`}
             >
               Legal
             </h3>
@@ -155,7 +145,6 @@ export default function Footer() {
           </div>
 
           {/* Socials Section */}
-          <div className="space-y-2 flex flex-col items-start sm:items-center lg:items-end">
           <div className="space-y-2 flex flex-col items-center lg:items-end">
             <h3
               className={`${roboto.className} text-white font-bold text-lg mb-4`}
