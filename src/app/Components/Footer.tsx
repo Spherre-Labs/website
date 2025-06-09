@@ -17,7 +17,7 @@ const roboto = Roboto_Mono({ subsets: ["latin"], weight: ["400", "500"] });
 
 export default function Footer() {
   return (
-    <footer className="bg-[#101213] text-gray-400 px-4 sm:px-6 md:px-8 lg:px-10 relative overflow-hidden">
+    {/* <footer className="bg-[#101213] text-gray-400 px-4 sm:px-6 md:px-8 lg:px-10 relative overflow-hidden"> */}
       {/* Eclipse arc light effect at top */}
     <footer className="bg-[#101213] text-gray-400 px-10 relative overflow-hidden">
       {/* Eclipse arc light effect at top */}
