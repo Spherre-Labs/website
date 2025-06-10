@@ -1,16 +1,28 @@
-'use client';
+"use client";
 
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { FiArrowRight, FiUsers, FiUser, FiZap, FiShield, FiTrendingUp } from 'react-icons/fi';
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import {
+  FiArrowRight,
+  FiUsers,
+  FiUser,
+  FiZap,
+  FiShield,
+  FiTrendingUp,
+} from "react-icons/fi";
 
 export default function WaitlistPage() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
   const { scrollY } = useScroll();
-  
+
   // Parallax effects
   const y1 = useTransform(scrollY, [0, 1000], [0, -100]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0.5]);
@@ -20,58 +32,58 @@ export default function WaitlistPage() {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1, 
-      transition: { 
-        duration: 1.5, 
-        staggerChildren: 0.15, 
-        ease: [0.25, 0.46, 0.45, 0.94] 
-      } 
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1.5,
+        staggerChildren: 0.15,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
     },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 100, scale: 0.8 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       scale: 1,
-      transition: { 
-        duration: 1, 
+      transition: {
+        duration: 1,
         ease: [0.25, 0.46, 0.45, 0.94],
         type: "spring",
-        stiffness: 100
-      } 
+        stiffness: 100,
+      },
     },
   };
 
   const headingVariants = {
     hidden: { opacity: 0, y: 50, rotateX: -15 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       rotateX: 0,
-      transition: { 
-        duration: 1.2, 
+      transition: {
+        duration: 1.2,
         ease: [0.25, 0.46, 0.45, 0.94],
-        staggerChildren: 0.08
-      }
+        staggerChildren: 0.08,
+      },
     },
   };
-  
+
   const letterVariants = {
     hidden: { opacity: 0, y: 50, rotateX: -90 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       rotateX: 0,
-      transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }
+      transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
     },
   };
 
@@ -80,32 +92,43 @@ export default function WaitlistPage() {
 
   const cardData = [
     {
-      id: 'individual',
-      title: 'Individual',
-      subtitle: 'Personal Asset Management',
-      description: 'Secure and manage your personal digital assets with military-grade encryption and intuitive controls.',
+      id: "individual",
+      title: "Individual",
+      subtitle: "Personal Asset Management",
+      description:
+        "Secure and manage your personal digital assets with military-grade encryption and intuitive controls.",
       icon: FiUser,
-      color: 'purple',
-      gradient: 'from-purple-500 to-pink-500',
-      glowColor: 'rgba(139, 92, 246, 0.4)',
-      features: ['Personal Wallet', 'Asset Tracking', 'Security Analytics', '24/7 Support']
+      color: "purple",
+      gradient: "from-purple-500 to-pink-500",
+      glowColor: "rgba(139, 92, 246, 0.4)",
+      features: [
+        "Personal Wallet",
+        "Asset Tracking",
+        "Security Analytics",
+        "24/7 Support",
+      ],
     },
     {
-      id: 'project',
-      title: 'Projects & Teams',
-      subtitle: 'Collaborative Treasury',
-      description: 'Enterprise-grade multi-signature treasury management with advanced governance and analytics.',
+      id: "project",
+      title: "Projects & Teams",
+      subtitle: "Collaborative Treasury",
+      description:
+        "Enterprise-grade multi-signature treasury management with advanced governance and analytics.",
       icon: FiUsers,
-      color: 'blue',
-      gradient: 'from-blue-500 to-cyan-500',
-      glowColor: 'rgba(59, 130, 246, 0.4)',
-      features: ['Multi-sig Wallets', 'Team Management', 'Advanced Analytics', 'Custom Workflows']
-    }
+      color: "blue",
+      gradient: "from-blue-500 to-cyan-500",
+      glowColor: "rgba(59, 130, 246, 0.4)",
+      features: [
+        "Multi-sig Wallets",
+        "Team Management",
+        "Advanced Analytics",
+        "Custom Workflows",
+      ],
+    },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0A0B0D] via-[#101213] to-[#1A1C1D] text-white flex flex-col items-center justify-center py-24 px-4 relative overflow-hidden">
-      
       {/* Dynamic Mouse Cursor Effect */}
       <motion.div
         className="fixed w-6 h-6 pointer-events-none z-50 mix-blend-difference"
@@ -144,17 +167,19 @@ export default function WaitlistPage() {
             ease: "easeInOut",
           }}
         >
-          <div className={`w-2 h-2 rounded-full ${i % 3 === 0 ? 'bg-purple-400' : i % 3 === 1 ? 'bg-blue-400' : 'bg-cyan-400'}`} />
+          <div
+            className={`w-2 h-2 rounded-full ${i % 3 === 0 ? "bg-purple-400" : i % 3 === 1 ? "bg-blue-400" : "bg-cyan-400"}`}
+          />
         </motion.div>
       ))}
 
       {/* Enhanced Background Elements */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 z-0 pointer-events-none"
         style={{ y: y1, opacity }}
       >
         {/* Central Vortex Effect */}
-        <motion.div 
+        <motion.div
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1600px] h-[1600px] rounded-full opacity-20"
           style={{
             background: `conic-gradient(from 0deg, 
@@ -166,52 +191,65 @@ export default function WaitlistPage() {
         />
 
         {/* Dynamic Orbs */}
-        <motion.div 
+        <motion.div
           className="absolute top-[10%] left-[10%] w-96 h-96 rounded-full opacity-30 blur-3xl"
-          style={{ 
-            background: 'radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%)',
+          style={{
+            background:
+              "radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%)",
           }}
-          animate={{ 
+          animate={{
             scale: [1, 1.3, 1],
             x: [0, 100, 0],
             y: [0, -50, 0],
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         />
-        
-        <motion.div 
+
+        <motion.div
           className="absolute bottom-[10%] right-[10%] w-96 h-96 rounded-full opacity-30 blur-3xl"
-          style={{ 
-            background: 'radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%)',
+          style={{
+            background:
+              "radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%)",
           }}
-          animate={{ 
+          animate={{
             scale: [1.2, 0.8, 1.2],
             x: [0, -100, 0],
             y: [0, 50, 0],
           }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3,
+          }}
         />
 
-        <motion.div 
+        <motion.div
           className="absolute top-[30%] right-[5%] w-80 h-80 rounded-full opacity-25 blur-3xl"
-          style={{ 
-            background: 'radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, transparent 70%)',
+          style={{
+            background:
+              "radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, transparent 70%)",
           }}
-          animate={{ 
+          animate={{
             scale: [0.8, 1.4, 0.8],
             rotate: [0, 180, 360],
           }}
-          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut", delay: 6 }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 6,
+          }}
         />
       </motion.div>
 
       {/* Grid Pattern Overlay */}
-      <div 
+      <div
         className="absolute inset-0 opacity-10 z-0"
         style={{
           backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
                            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px',
+          backgroundSize: "50px 50px",
         }}
       />
 
@@ -227,29 +265,30 @@ export default function WaitlistPage() {
           variants={headingVariants}
           style={{ perspective: "1000px" }}
         >
-          <motion.h1 
+          <motion.h1
             className="text-6xl md:text-9xl font-black mb-6 leading-tight"
-            style={{ 
-              background: 'linear-gradient(45deg, #8b5cf6, #3b82f6, #06b6d4, #8b5cf6)',
-              backgroundSize: '300% 300%',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
+            style={{
+              background:
+                "linear-gradient(45deg, #8b5cf6, #3b82f6, #06b6d4, #8b5cf6)",
+              backgroundSize: "300% 300%",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
             }}
-            animate={{ 
-              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+            animate={{
+              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
             transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
           >
             {words.map((word, i) => (
-              <motion.span 
-                key={i} 
+              <motion.span
+                key={i}
                 className="inline-block mr-4"
                 variants={letterVariants}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.1,
                   rotateY: 15,
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
               >
                 {word}
@@ -266,7 +305,7 @@ export default function WaitlistPage() {
           />
         </motion.div>
 
-        <motion.p 
+        <motion.p
           className="text-xl md:text-2xl text-gray-300 mb-20 leading-relaxed max-w-4xl mx-auto font-light"
           variants={itemVariants}
         >
@@ -275,7 +314,7 @@ export default function WaitlistPage() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
           >
-            Be the first to experience 
+            Be the first to experience
           </motion.span>
           <motion.span
             className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 font-semibold mx-2"
@@ -295,7 +334,7 @@ export default function WaitlistPage() {
         </motion.p>
 
         {/* Enhanced Cards */}
-        <motion.div 
+        <motion.div
           className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto"
           variants={containerVariants}
         >
@@ -306,7 +345,7 @@ export default function WaitlistPage() {
               variants={itemVariants}
               onHoverStart={() => setHoveredCard(card.id)}
               onHoverEnd={() => setHoveredCard(null)}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 rotateY: index === 0 ? 5 : -5,
                 z: 50,
@@ -319,20 +358,22 @@ export default function WaitlistPage() {
               <motion.div
                 className="absolute -inset-1 rounded-3xl opacity-0 group-hover:opacity-100 blur-sm"
                 animate={{
-                  background: hoveredCard === card.id 
-                    ? `conic-gradient(from 0deg, ${card.glowColor}, transparent, ${card.glowColor})` 
-                    : 'transparent',
+                  background:
+                    hoveredCard === card.id
+                      ? `conic-gradient(from 0deg, ${card.glowColor}, transparent, ${card.glowColor})`
+                      : "transparent",
                 }}
                 transition={{ duration: 0.3 }}
               />
 
               {/* Card Content */}
-              <div className={`relative bg-gradient-to-br from-[#1A1C1D]/90 to-[#2A2C2D]/90 backdrop-blur-xl border border-white/10 rounded-3xl p-10 h-full transition-all duration-500 group-hover:border-white/20`}>
-                
+              <div
+                className={`relative bg-gradient-to-br from-[#1A1C1D]/90 to-[#2A2C2D]/90 backdrop-blur-xl border border-white/10 rounded-3xl p-10 h-full transition-all duration-500 group-hover:border-white/20`}
+              >
                 {/* Icon with Animation */}
                 <motion.div
                   className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${card.gradient} p-4 mb-8 mx-auto`}
-                  animate={{ 
+                  animate={{
                     rotate: hoveredCard === card.id ? [0, 5, -5, 0] : 0,
                     scale: hoveredCard === card.id ? 1.1 : 1,
                   }}
@@ -343,15 +384,15 @@ export default function WaitlistPage() {
 
                 {/* Content */}
                 <div className="text-center space-y-6">
-                  <motion.h2 
+                  <motion.h2
                     className={`text-3xl font-bold bg-gradient-to-r ${card.gradient} bg-clip-text text-transparent`}
                     animate={{ scale: hoveredCard === card.id ? 1.05 : 1 }}
                   >
                     {card.title}
                   </motion.h2>
-                  
+
                   <p className="text-gray-400 font-medium">{card.subtitle}</p>
-                  
+
                   <p className="text-gray-300 leading-relaxed text-lg">
                     {card.description}
                   </p>
@@ -443,10 +484,15 @@ export default function WaitlistPage() {
               key={index}
               className="text-center p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10"
               variants={itemVariants}
-              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(255,255,255,0.1)",
+              }}
             >
               <stat.icon className="w-8 h-8 mx-auto mb-4 text-purple-400" />
-              <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
+              <div className="text-3xl font-bold text-white mb-2">
+                {stat.value}
+              </div>
               <div className="text-gray-400">{stat.label}</div>
             </motion.div>
           ))}

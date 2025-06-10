@@ -7,7 +7,10 @@ interface ConstructionModalProps {
   onClose: () => void;
 }
 
-const ConstructionModal: React.FC<ConstructionModalProps> = ({ isOpen, onClose }) => {
+const ConstructionModal: React.FC<ConstructionModalProps> = ({
+  isOpen,
+  onClose,
+}) => {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -20,7 +23,7 @@ const ConstructionModal: React.FC<ConstructionModalProps> = ({ isOpen, onClose }
             onClick={onClose}
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center"
           />
-          
+
           {/* Modal Container - Centered */}
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <motion.div
@@ -32,7 +35,7 @@ const ConstructionModal: React.FC<ConstructionModalProps> = ({ isOpen, onClose }
             >
               {/* Animated Glow Border */}
               <div className="absolute -inset-1 rounded-2xl overflow-hidden">
-                <div 
+                <div
                   className="absolute inset-0 rounded-2xl"
                   style={{
                     background: `conic-gradient(from 0deg, 
@@ -42,7 +45,7 @@ const ConstructionModal: React.FC<ConstructionModalProps> = ({ isOpen, onClose }
                       #3b82f6 320deg, 
                       #8b5cf6 350deg, 
                       transparent 360deg)`,
-                    animation: 'spin 8s linear infinite'
+                    animation: "spin 8s linear infinite",
                   }}
                 />
                 <div className="absolute inset-[2px] bg-[#1A1C1D] rounded-2xl" />
@@ -71,9 +74,10 @@ const ConstructionModal: React.FC<ConstructionModalProps> = ({ isOpen, onClose }
                   <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
                     Coming Soon!
                   </h2>
-                  
+
                   <p className="text-gray-400 mb-10 text-lg max-w-md mx-auto">
-                    We&apos;re putting the finishing touches on our dApp. Join our waitlist to be the first to know when we launch!
+                    We&apos;re putting the finishing touches on our dApp. Join
+                    our waitlist to be the first to know when we launch!
                   </p>
 
                   {/* Gradient Border Button */}

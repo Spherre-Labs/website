@@ -64,7 +64,7 @@ export default function Nav() {
 
         {/* Mobile Navigation Toggle Button */}
         <div className="flex space-x-3">
-          <button 
+          <button
             onClick={handleAppClick}
             className="bg-white text-black py-2 px-5 rounded-full hidden md:block hover:bg-gray-100 transition-colors"
           >
@@ -99,7 +99,7 @@ export default function Nav() {
               Twitter
             </li>
             <li>
-              <button 
+              <button
                 onClick={handleAppClick}
                 className="bg-white text-black py-2 px-8 rounded-full text-xl mt-8 hover:bg-gray-100 transition-colors"
               >
@@ -111,9 +111,9 @@ export default function Nav() {
       )}
 
       {/* Construction Modal */}
-      <ConstructionModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+      <ConstructionModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
       />
     </header>
   );
