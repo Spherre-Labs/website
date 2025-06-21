@@ -59,7 +59,11 @@ export default function Nav() {
             <li className="hover:underline">Docs</li>
             <li className="hover:underline">Telegram</li>
             <li className="hover:underline">
-              <a href="https://x.com/Spherremultisig" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://x.com/Spherremultisig"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Twitter
               </a>
             </li>
@@ -100,7 +104,11 @@ export default function Nav() {
               Telegram
             </li>
             <li className="hover:underline" onClick={toggleNav}>
-              <a href="https://x.com/Spherremultisig" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://x.com/Spherremultisig"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Twitter
               </a>
             </li>

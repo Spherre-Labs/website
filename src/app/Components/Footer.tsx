@@ -17,7 +17,10 @@ const roboto = Roboto_Mono({ subsets: ["latin"], weight: ["400", "500"] });
 
 export default function Footer() {
   return (
-    <footer className="bg-[#101213] text-gray-400 px-10 relative overflow-hidden" role="contentinfo">
+    <footer
+      className="bg-[#101213] text-gray-400 px-10 relative overflow-hidden"
+      role="contentinfo"
+    >
       {/* Eclipse arc light effect at top - commented out due to missing file */}
       {/* <div className="relative w-full overflow-hidden">
         <Image
@@ -33,14 +36,26 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 w-full">
           {/* Logo Section */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-1 flex items-start lg:justify-start justify-center mb-4 lg:mb-0">
-            <Link href="/" className="flex items-center gap-2" aria-label="Spherre Home">
-              <Image src={SpherreLogo} alt="Spherre Logo" width={50} height={50}/>
+            <Link
+              href="/"
+              className="flex items-center gap-2"
+              aria-label="Spherre Home"
+            >
+              <Image
+                src={SpherreLogo}
+                alt="Spherre Logo"
+                width={50}
+                height={50}
+              />
               <span className="text-white text-xl font-semibold">Spherre</span>
             </Link>
           </div>
 
           {/* Product Section */}
-          <nav className="space-y-2 flex flex-col items-center lg:items-end" aria-labelledby="product-heading">
+          <nav
+            className="space-y-2 flex flex-col items-center lg:items-end"
+            aria-labelledby="product-heading"
+          >
             <h3
               id="product-heading"
               className={`${roboto.className} text-white font-bold text-lg mb-4`}
@@ -79,7 +94,10 @@ export default function Footer() {
           </nav>
 
           {/* Resources Section */}
-          <nav className="space-y-2 flex flex-col items-center lg:items-end" aria-labelledby="resources-heading">
+          <nav
+            className="space-y-2 flex flex-col items-center lg:items-end"
+            aria-labelledby="resources-heading"
+          >
             <h3
               id="resources-heading"
               className={`${roboto.className} text-white font-bold text-lg mb-4`}
@@ -127,7 +145,10 @@ export default function Footer() {
           </nav>
 
           {/* Legal Section */}
-          <nav className="space-y-2 flex flex-col items-center lg:items-end" aria-labelledby="legal-heading">
+          <nav
+            className="space-y-2 flex flex-col items-center lg:items-end"
+            aria-labelledby="legal-heading"
+          >
             <h3
               id="legal-heading"
               className={`${roboto.className} text-white font-bold text-lg mb-4`}
@@ -157,7 +178,10 @@ export default function Footer() {
           </nav>
 
           {/* Socials Section */}
-          <nav className="space-y-2 flex flex-col items-center lg:items-end" aria-labelledby="socials-heading">
+          <nav
+            className="space-y-2 flex flex-col items-center lg:items-end"
+            aria-labelledby="socials-heading"
+          >
             <h3
               id="socials-heading"
               className={`${roboto.className} text-white font-bold text-lg mb-4`}

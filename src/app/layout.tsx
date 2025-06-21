@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title: "Spherre - Collaboration Through Decentralized Security",
   description:
     "Spherre is a next-gen platform for secure, collaborative, multi-user crypto wallet and treasury management. Perfect for DAOs, startups, and organizations.",
-    
+
   keywords: [
     "multisig",
     "crypto wallet",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "collaborative finance",
     "web3",
     "cryptocurrency",
-    "digital assets"
+    "digital assets",
   ],
   authors: [{ name: "Spherre Team" }],
   creator: "Spherre",
@@ -53,12 +53,8 @@ export const metadata: Metadata = {
       { url: "/spherrelogo.png", sizes: "16x16", type: "image/png" },
       { url: "/spherrelogo.png", sizes: "32x32", type: "image/png" },
     ],
-    apple: [
-      { url: "/spherrelogo.png", sizes: "180x180", type: "image/png" },
-    ],
-    other: [
-      { rel: "mask-icon", url: "/spherrelogo.png", color: "#000000" },
-    ],
+    apple: [{ url: "/spherrelogo.png", sizes: "180x180", type: "image/png" }],
+    other: [{ rel: "mask-icon", url: "/spherrelogo.png", color: "#000000" }],
   },
   manifest: "/site.webmanifest",
   openGraph: {
@@ -136,9 +132,12 @@ export default function RootLayout({
         <meta name="theme-color" content="#000000" />
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
         <meta name="apple-mobile-web-app-title" content="Spherre" />
-        
+
         {/* Structured Data */}
         <script
           type="application/ld+json"
@@ -149,20 +148,21 @@ export default function RootLayout({
               name: "Spherre",
               url: "https://spherre.xyz",
               logo: "https://spherre.xyz/logo.png",
-              description: "Spherre is a next-gen platform for secure, collaborative, multi-user crypto wallet and treasury management.",
+              description:
+                "Spherre is a next-gen platform for secure, collaborative, multi-user crypto wallet and treasury management.",
               sameAs: [
                 "https://x.com/Spherremultisig",
                 "https://github.com/Spherre-Labs",
                 "https://linkedin.com/company/spherre",
                 "https://youtube.com/@spherre",
-                "https://instagram.com/spherre_xyz"
+                "https://instagram.com/spherre_xyz",
               ],
               contactPoint: {
                 "@type": "ContactPoint",
                 contactType: "customer service",
-                email: "support@spherre.com"
-              }
-            })
+                email: "support@spherre.com",
+              },
+            }),
           }}
         />
       </head>

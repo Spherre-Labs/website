@@ -7,7 +7,7 @@ import Arrow from "../../../public/Arrow.png";
 
 const Hero: React.FC = () => {
   return (
-    <section 
+    <section
       className="relative text-white border-[1px] border-[#ffffff43] border-t-0 py-16 bg-bottom"
       aria-labelledby="hero-heading"
     >
@@ -20,11 +20,16 @@ const Hero: React.FC = () => {
             </div>
             <div className="flex items-center gap-2">
               <p className="text-xs md:text-sm opacity-40">Read more</p>
-              <Image src={Arrow} width={20} height={10} alt="Arrow pointing right" />
+              <Image
+                src={Arrow}
+                width={20}
+                height={10}
+                alt="Arrow pointing right"
+              />
             </div>
           </div>
         </div>
-        <h1 
+        <h1
           id="hero-heading"
           className="text-2xl md:text-4xl md:text-6xl font-bold mb-4 w-[50%] mx-auto"
         >
@@ -40,13 +45,13 @@ const Hero: React.FC = () => {
             low-cost solutions.
           </p>
           <div className="flex flex-col md:flex-row justify-center gap-4 mb-12">
-            <button 
+            <button
               className="px-6 py-3 bg-black text-white rounded-full text-base font-medium shadow-md hover:bg-gray-800 transition-all duration-200"
               aria-label="Book a demo with Spherre"
             >
               Book a Demo
             </button>
-            <button 
+            <button
               className="px-6 py-3 bg-white text-black rounded-full text-base font-medium shadow-md hover:bg-gray-200 transition-all duration-200"
               aria-label="Learn more about Spherre"
             >
