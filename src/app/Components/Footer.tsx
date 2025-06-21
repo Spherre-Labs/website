@@ -20,10 +20,10 @@ export default function Footer() {
       className="bg-[#101213] text-gray-400"
       role="contentinfo"
     >
-      <div className="mx-auto px-4 sm:px-6 md:px-10 py-12">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 w-full">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10 py-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 w-full">
           {/* Logo Section */}
-          <div className="col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-1 flex items-start justify-center lg:justify-start mb-6 lg:mb-0">
+          <div className="col-span-2 sm:col-span-3 md:col-span-1 flex items-start justify-center md:justify-start mb-6 md:mb-0">
             <Link
               href="/"
               className="flex items-center gap-2"
@@ -167,7 +167,7 @@ export default function Footer() {
 
           {/* Socials Section */}
           <nav
-            className="col-span-2 sm:col-span-1 space-y-2 flex flex-col items-center sm:items-start"
+            className="col-span-1 space-y-2 flex flex-col items-center sm:items-start"
             aria-labelledby="socials-heading"
           >
             <h3
