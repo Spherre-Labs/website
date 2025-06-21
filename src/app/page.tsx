@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="bg-[#101213]">
       <Nav />
-      <main className="border border-[#ffffff43] bg-[#101213] mx-10">
+      <main className="border border-[#ffffff43] bg-[#101213] mx-5">
         <div
           className="relative"
           role="banner"
