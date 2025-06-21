@@ -4,6 +4,7 @@ import { SpherreLogo } from "../../../public/icons";
 import { useState, useEffect } from "react";
 import { FiAlignCenter, FiX } from "react-icons/fi";
 import ConstructionModal from "./ConstructionModal";
+import Link from "next/link";
 
 export default function Nav() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -41,9 +42,12 @@ export default function Nav() {
           <span>🚀</span>
           <span>Join our waitlist</span>
         </p>
-        <button className="bg-black text-white border border-white rounded-full w-fit py-1 px-3">
+        <Link
+          href="/waitlist"
+          className="bg-black text-white border border-white rounded-full w-fit py-1 px-3"
+        >
           Join now
-        </button>
+        </Link>
       </div>
 
       {/* Navbar */}

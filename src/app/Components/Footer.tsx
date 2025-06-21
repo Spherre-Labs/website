@@ -20,7 +20,7 @@ export default function Footer() {
       className="bg-[#101213] text-gray-400"
       role="contentinfo"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10 py-12">
+      <div className="mx-auto px-4 sm:px-6 md:px-10 py-12">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 w-full">
           {/* Logo Section */}
           <div className="col-span-2 sm:col-span-3 md:col-span-1 flex items-start justify-center md:justify-start mb-6 md:mb-0">
