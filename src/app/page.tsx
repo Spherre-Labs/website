@@ -1,4 +1,5 @@
 // import CoreFeats from "./Components/CoreFeats";
+import Eclipse from "./Components/Eclipse";
 import Features from "./Components/Features";
 import Footer from "./Components/Footer";
 import Hero from "./Components/Hero";
@@ -27,13 +28,14 @@ export default function Home() {
             className="opacity-50"
           />
           <div className="relative z-10">
-            <Hero />
+          <Hero />
           </div>
         </div>
         <Features />
         {/* <CoreFeats/> */}
         <TestimonialSection />
       </main>
+      <Eclipse />
       <Footer />
     </div>
   );
