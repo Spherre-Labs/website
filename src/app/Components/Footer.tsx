@@ -17,7 +17,10 @@ const roboto = Roboto_Mono({ subsets: ["latin"], weight: ["400", "500"] });
 
 export default function Footer() {
   return (
-    <footer className="bg-[#101213] text-gray-400 px-10 relative overflow-hidden">
+    <footer
+      className="bg-[#101213] text-gray-400 px-10 relative overflow-hidden"
+      role="contentinfo"
+    >
       {/* Eclipse arc light effect at top - commented out due to missing file */}
       {/* <div className="relative w-full overflow-hidden">
         <Image
@@ -33,24 +36,38 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 w-full">
           {/* Logo Section */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-1 flex items-start lg:justify-start justify-center mb-4 lg:mb-0">
-            <Link href="/" className="flex items-center gap-2">
-              <Image src={SpherreLogo} alt="Spherre Logo" />
+            <Link
+              href="/"
+              className="flex items-center gap-2"
+              aria-label="Spherre Home"
+            >
+              <Image
+                src={SpherreLogo}
+                alt="Spherre Logo"
+                width={50}
+                height={50}
+              />
               <span className="text-white text-xl font-semibold">Spherre</span>
             </Link>
           </div>
 
           {/* Product Section */}
-          <div className="space-y-2 flex flex-col items-center lg:items-end">
+          <nav
+            className="space-y-2 flex flex-col items-center lg:items-end"
+            aria-labelledby="product-heading"
+          >
             <h3
+              id="product-heading"
               className={`${roboto.className} text-white font-bold text-lg mb-4`}
             >
               Product
             </h3>
-            <ul className={`${nunito.className} space-y-3`}>
+            <ul className={`${nunito.className} space-y-3`} role="list">
               <li>
                 <Link
                   href="/multisig"
                   className="hover:text-white transition-colors text-[#808080] text-sm"
+                  aria-label="Learn about Spherre Multisig"
                 >
                   Multisig
                 </Link>
@@ -59,6 +76,7 @@ export default function Footer() {
                 <Link
                   href="/members"
                   className="hover:text-white transition-colors text-[#808080] text-sm"
+                  aria-label="Learn about Spherre Members"
                 >
                   Members
                 </Link>
@@ -67,25 +85,31 @@ export default function Footer() {
                 <Link
                   href="/threshold"
                   className="hover:text-white transition-colors text-[#808080] text-sm"
+                  aria-label="Learn about Spherre Threshold"
                 >
                   Threshold
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* Resources Section */}
-          <div className="space-y-2 flex flex-col items-center lg:items-end">
+          <nav
+            className="space-y-2 flex flex-col items-center lg:items-end"
+            aria-labelledby="resources-heading"
+          >
             <h3
+              id="resources-heading"
               className={`${roboto.className} text-white font-bold text-lg mb-4`}
             >
               Resources
             </h3>
-            <ul className={`${nunito.className} space-y-3`}>
+            <ul className={`${nunito.className} space-y-3`} role="list">
               <li>
                 <Link
                   href="/documentation"
                   className="hover:text-white transition-colors text-[#808080] text-sm"
+                  aria-label="View Spherre Documentation"
                 >
                   Documentation
                 </Link>
@@ -94,6 +118,7 @@ export default function Footer() {
                 <Link
                   href="/blog"
                   className="hover:text-white transition-colors text-[#808080] text-sm"
+                  aria-label="Read Spherre Blog"
                 >
                   Blog
                 </Link>
@@ -102,6 +127,7 @@ export default function Footer() {
                 <Link
                   href="/github"
                   className="hover:text-white transition-colors text-[#808080] text-sm"
+                  aria-label="Visit Spherre on GitHub"
                 >
                   GitHub
                 </Link>
@@ -110,25 +136,31 @@ export default function Footer() {
                 <Link
                   href="/support"
                   className="hover:text-white transition-colors text-[#808080] text-sm"
+                  aria-label="Get Help and Support"
                 >
                   Help & Support
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* Legal Section */}
-          <div className="space-y-2 flex flex-col items-center lg:items-end">
+          <nav
+            className="space-y-2 flex flex-col items-center lg:items-end"
+            aria-labelledby="legal-heading"
+          >
             <h3
+              id="legal-heading"
               className={`${roboto.className} text-white font-bold text-lg mb-4`}
             >
               Legal
             </h3>
-            <ul className={`${nunito.className} space-y-3`}>
+            <ul className={`${nunito.className} space-y-3`} role="list">
               <li>
                 <Link
                   href="/terms"
                   className="hover:text-white transition-colors text-[#808080] text-sm"
+                  aria-label="View Terms of Service"
                 >
                   Terms of Service
                 </Link>
@@ -137,25 +169,33 @@ export default function Footer() {
                 <Link
                   href="/privacy"
                   className="hover:text-white transition-colors text-[#808080] text-sm"
+                  aria-label="View Privacy Policy"
                 >
                   Privacy Policy
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* Socials Section */}
-          <div className="space-y-2 flex flex-col items-center lg:items-end">
+          <nav
+            className="space-y-2 flex flex-col items-center lg:items-end"
+            aria-labelledby="socials-heading"
+          >
             <h3
+              id="socials-heading"
               className={`${roboto.className} text-white font-bold text-lg mb-4`}
             >
               Socials
             </h3>
-            <ul className={`${nunito.className} space-y-3`}>
+            <ul className={`${nunito.className} space-y-3`} role="list">
               <li>
                 <Link
-                  href="https://twitter.com"
+                  href="https://x.com/Spherremultisig"
                   className="flex items-center gap-2 hover:text-white transition-colors text-[#808080] text-sm"
+                  aria-label="Follow Spherre on Twitter"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Image src={XIcon} alt="Twitter Icon" />
                   <span>Twitter</span>
@@ -163,8 +203,11 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://github.com"
+                  href="https://github.com/Spherre-Labs"
                   className="flex items-center gap-2 hover:text-white transition-colors text-[#808080] text-sm"
+                  aria-label="Follow Spherre on GitHub"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Image src={GithubIcon} alt="GitHub Icon" />
                   <span>GitHub</span>
@@ -172,8 +215,11 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://linkedin.com"
+                  href="https://linkedin.com/company/spherre"
                   className="flex items-center gap-2 hover:text-white transition-colors text-[#808080] text-sm"
+                  aria-label="Follow Spherre on LinkedIn"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Image src={LinkedinIcon} alt="LinkedIn Icon" />
                   <span>LinkedIn</span>
@@ -181,8 +227,11 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://youtube.com"
+                  href="https://youtube.com/@spherre"
                   className="flex items-center gap-2 hover:text-white transition-colors text-[#808080] text-sm"
+                  aria-label="Follow Spherre on YouTube"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Image src={YoutubeIcon} alt="YouTube Icon" />
                   <span>YouTube</span>
@@ -190,15 +239,18 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://instagram.com"
+                  href="https://instagram.com/spherre_xyz"
                   className="flex items-center gap-2 hover:text-white transition-colors text-[#808080] text-sm"
+                  aria-label="Follow Spherre on Instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Image src={InstagramIcon} alt="Instagram Icon" />
                   <span>Instagram</span>
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
         </div>
 
         {/* Copyright Section */}
@@ -211,6 +263,7 @@ export default function Footer() {
           <Link
             href="mailto:support@spherre.com"
             className="text-sm hover:text-white transition-colors text-[#808080]"
+            aria-label="Contact Spherre Support"
           >
             support@spherre.com
           </Link>
