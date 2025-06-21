@@ -4,6 +4,7 @@ import { SpherreLogo } from "../../../public/icons";
 import { useState, useEffect } from "react";
 import { FiAlignCenter, FiX } from "react-icons/fi";
 import ConstructionModal from "./ConstructionModal";
+import Link from "next/link";
 
 export default function Nav() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -41,9 +42,12 @@ export default function Nav() {
           <span>🚀</span>
           <span>Join our waitlist</span>
         </p>
-        <button className="bg-black text-white border border-white rounded-full w-fit py-1 px-3">
+        <Link
+          href="/waitlist"
+          className="bg-black text-white border border-white rounded-full w-fit py-1 px-3"
+        >
           Join now
-        </button>
+        </Link>
       </div>
 
       {/* Navbar */}
@@ -91,38 +95,39 @@ export default function Nav() {
         </div>
       </nav>
 
-      {/* Mobile Slide-in Menu */}
-      {isNavOpen && (
-        <div
-          className={`fixed top-0 left-0 w-full h-full bg-[#101213] z-40 md:hidden flex flex-col items-center justify-start`}
-        >
-          <ul className="flex flex-col gap-14 items-center text-white text-2xl">
-            <li className="hover:underline" onClick={toggleNav}>
-              Docs
+      {/* Mobile Fullscreen Menu */}
+      <div
+        className={`fixed top-0 left-0 w-full h-full bg-[#101213] z-40 transform transition-transform duration-300 ease-in-out md:hidden ${
+          isNavOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col items-center mt-[40%] h-full">
+          <ul className="flex flex-col gap-8 text-center text-white text-2xl">
+            <li className="hover:bg-gray-800 px-4 py-2 rounded-md transition-colors">
+              <button onClick={toggleNav}>Docs</button>
             </li>
-            <li className="hover:underline" onClick={toggleNav}>
-              Telegram
+            <li className="hover:bg-gray-800 px-4 py-2 rounded-md transition-colors">
+              <button onClick={toggleNav}>Telegram</button>
             </li>
-            <li className="hover:underline" onClick={toggleNav}>
+            <li className="hover:bg-gray-800 px-4 py-2 rounded-md transition-colors">
               <a
                 href="https://x.com/Spherremultisig"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={toggleNav}
               >
                 Twitter
               </a>
             </li>
-            <li>
-              <button
-                onClick={handleAppClick}
-                className="bg-white text-black py-2 px-8 rounded-full text-xl mt-8 hover:bg-gray-100 transition-colors"
-              >
-                Open App
-              </button>
-            </li>
           </ul>
+          <button
+            onClick={handleAppClick}
+            className="bg-white text-black py-3 px-8 rounded-full text-lg mt-12 hover:bg-gray-200 transition-colors"
+          >
+            Open App
+          </button>
         </div>
-      )}
+      </div>
 
       {/* Construction Modal */}
       <ConstructionModal

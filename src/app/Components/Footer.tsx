@@ -10,7 +10,6 @@ import {
   SpherreLogo,
 } from "../../../public/icons";
 import Image from "next/image";
-// import Eclipse from "../../../public/Spherre-eclipse.png"; // Commented out because file is missing
 
 const nunito = Nunito_Sans({ subsets: ["latin"], weight: ["400", "500"] });
 const roboto = Roboto_Mono({ subsets: ["latin"], weight: ["400", "500"] });
@@ -18,24 +17,13 @@ const roboto = Roboto_Mono({ subsets: ["latin"], weight: ["400", "500"] });
 export default function Footer() {
   return (
     <footer
-      className="bg-[#101213] text-gray-400 px-10 relative overflow-hidden"
+      className="bg-[#101213] text-gray-400"
       role="contentinfo"
     >
-      {/* Eclipse arc light effect at top - commented out due to missing file */}
-      {/* <div className="relative w-full overflow-hidden">
-        <Image
-          src={Eclipse}
-          alt="comet"
-          width={2000}
-          height={40}
-          className="mx-auto object-cover object-top lg:mb-[-50%]"
-        />
-      </div> */}
-      {/* Footer Content */}
-      <div className="pt-8 sm:pt-10 pb-2">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 w-full">
+      <div className="mx-auto px-4 sm:px-6 md:px-10 py-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 w-full">
           {/* Logo Section */}
-          <div className="col-span-2 sm:col-span-3 lg:col-span-1 flex items-start lg:justify-start justify-center mb-4 lg:mb-0">
+          <div className="col-span-2 sm:col-span-3 md:col-span-1 flex items-start justify-center md:justify-start mb-6 md:mb-0">
             <Link
               href="/"
               className="flex items-center gap-2"
@@ -53,7 +41,7 @@ export default function Footer() {
 
           {/* Product Section */}
           <nav
-            className="space-y-2 flex flex-col items-center lg:items-end"
+            className="space-y-2 flex flex-col items-center sm:items-start"
             aria-labelledby="product-heading"
           >
             <h3
@@ -95,7 +83,7 @@ export default function Footer() {
 
           {/* Resources Section */}
           <nav
-            className="space-y-2 flex flex-col items-center lg:items-end"
+            className="space-y-2 flex flex-col items-center sm:items-start"
             aria-labelledby="resources-heading"
           >
             <h3
@@ -146,7 +134,7 @@ export default function Footer() {
 
           {/* Legal Section */}
           <nav
-            className="space-y-2 flex flex-col items-center lg:items-end"
+            className="space-y-2 flex flex-col items-center sm:items-start"
             aria-labelledby="legal-heading"
           >
             <h3
@@ -179,7 +167,7 @@ export default function Footer() {
 
           {/* Socials Section */}
           <nav
-            className="space-y-2 flex flex-col items-center lg:items-end"
+            className="col-span-1 space-y-2 flex flex-col items-center sm:items-start"
             aria-labelledby="socials-heading"
           >
             <h3
@@ -255,9 +243,9 @@ export default function Footer() {
 
         {/* Copyright Section */}
         <div
-          className={`${roboto.className} flex flex-col md:flex-row justify-between md:items-center pt-8`}
+          className={`${roboto.className} flex flex-col md:flex-row justify-between items-center text-center md:text-left pt-8 mt-8 border-t border-gray-800`}
         >
-          <p className="text-sm mb-4 md:mb-0">
+          <p className="text-sm text-gray-400 mb-4 md:mb-0">
             Copyright © {new Date().getFullYear()} Spherre all rights reserved
           </p>
           <Link
