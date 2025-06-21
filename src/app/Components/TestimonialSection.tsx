@@ -155,8 +155,8 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({
             src={testimonial.avatar}
             alt={testimonial.name}
             className="w-full h-full object-cover"
-            width={100}
-            height={100}
+            width={40}
+            height={40}
           />
         </div>
         <div className="flex flex-col">
@@ -551,11 +551,11 @@ export function StepsCarousel({
           <h3 className="text-xl md:text-2xl font-bold mb-4 w-full md:w-[611px]">
             {current.title}
           </h3>
-          <div className="w-full overflow-x-auto">
+          <div className="w-full overflow-x-auto mt-8">
             <Image
               src={current.image}
               alt={current.imageAlt}
-              height={300}
+              height={3000}
               className="min-w-full"
             />
           </div>

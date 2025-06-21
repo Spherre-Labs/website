@@ -4,30 +4,36 @@ import Footer from "./Components/Footer";
 import Hero from "./Components/Hero";
 import Nav from "./Components/Nav";
 import TestimonialSection from "./Components/TestimonialSection";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="bg-[#101213]">
       <Nav />
-      <div className="border border-[#ffffff43] bg-[#101213] mx-10">
+      <main className="border border-[#ffffff43] bg-[#101213] mx-10">
         <div
-          style={{
-            backgroundImage: "url('/Ellipse.png')",
-            backgroundSize: "120%",
-            width: "100%",
-            height: "80%",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            // backgroundBlendMode: "overlay",
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-          }}
+          className="relative"
+          role="banner"
+          aria-label="Hero section background"
         >
-          <Hero />
+          <Image
+            src="/Ellipse.png"
+            alt="Hero section background"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+            quality={80}
+            priority
+            className="opacity-50"
+          />
+          <div className="relative z-10">
+            <Hero />
+          </div>
         </div>
         <Features />
         {/* <CoreFeats/> */}
         <TestimonialSection />
-      </div>
+      </main>
       <Footer />
     </div>
   );

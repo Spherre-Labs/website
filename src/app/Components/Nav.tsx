@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import SpherreLogo from "../../public/logo.svg";
+import { SpherreLogo } from "../../../public/icons";
 import { useState, useEffect } from "react";
 import { FiAlignCenter, FiX } from "react-icons/fi";
 import ConstructionModal from "./ConstructionModal";
@@ -58,7 +58,11 @@ export default function Nav() {
           <ul className="md:flex justify-center gap-14 items-center cursor-pointer hidden">
             <li className="hover:underline">Docs</li>
             <li className="hover:underline">Telegram</li>
-            <li className="hover:underline">Twitter</li>
+            <li className="hover:underline">
+              <a href="https://x.com/Spherremultisig" target="_blank" rel="noopener noreferrer">
+                Twitter
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -96,7 +100,9 @@ export default function Nav() {
               Telegram
             </li>
             <li className="hover:underline" onClick={toggleNav}>
-              Twitter
+              <a href="https://x.com/Spherremultisig" target="_blank" rel="noopener noreferrer">
+                Twitter
+              </a>
             </li>
             <li>
               <button
